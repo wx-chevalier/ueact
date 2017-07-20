@@ -1,0 +1,29 @@
+{
+  "presets": [
+    [
+      "env",
+      {
+        "modules": false
+      }
+    ],
+    "stage-0",
+    "flow"
+  ],
+  "plugins": [
+    "transform-decorators-legacy",
+    "async-to-promises",
+    [
+      "transform-react-jsx", {
+        "pragma": "createDOMElement"
+      }
+    ]
+  ],
+  "env": {
+    "test": {
+      "plugins": [
+        "transform-es2015-modules-commonjs",
+        "dynamic-import-node"
+      ]
+    }
+  }
+}
