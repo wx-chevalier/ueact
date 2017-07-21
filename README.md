@@ -1,7 +1,7 @@
 
 > 重要！Ueact 只是实验性框架，请勿在任何生产环境下使用，笔者只是想严肃地自己撸一遍现有的前端框架。
 
-![](https://badge.fury.io/gh/wxyyxc1992%2FUeact.svg)
+![](https://coding.net/u/hoteam/p/Cache/git/raw/master/2017/6/1/logo.png)![](https://badge.fury.io/gh/wxyyxc1992%2FUeact.svg)
 
 # Ueact: 彻底的渐进式前端框架
 
