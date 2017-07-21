@@ -117,4 +117,13 @@ export const svgTags = svgTagNames.filter(
   name => excludeSvgTags.indexOf(name) === -1
 );
 
-export const isSVG = tagName => svgTags.indexOf(tagName) >= 0;
+export const isSVG = (tagName: String) => svgTags.indexOf(tagName) >= 0;
+
+export const autoCloseTags: Array<
+  String
+> = 'area,base,br,col,embed,hr,img,input,keygen,param,source,track,wbr'.split(
+  ','
+);
+
+export const isAutoCloseTag = (tagName: String) =>
+  autoCloseTags.indexOf(tagName) >= 0;

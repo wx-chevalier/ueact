@@ -1,13 +1,13 @@
 {
-  "name": "Ueact",
-  "version": "0.0.1",
-  "description": "scaffold for creating engineering vue.js project ",
+  "name": "ueact",
+  "version": "0.0.2",
+  "description": "Ultimate Progressive Web Library, Inspired by React & Vue",
   "author": "wxyyxc1992",
   "license": "MIT",
-  "homepage": "https://github.com/wxyyxc1992/create-webpack-app",
+  "homepage": "https://github.com/wxyyxc1992/Ueact",
   "repository": {
     "type": "git",
-    "url": "https://github.com/wxyyxc1992/create-webpack-app"
+    "url": "https://github.com/wxyyxc1992/Ueact"
   },
   "keywords": [
     "boilerplate",
