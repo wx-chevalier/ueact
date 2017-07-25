@@ -1,7 +1,7 @@
 // @flow
 
 import { renderComponent } from '../component/renderComponent';
-import { defer } from '../../shared/util/event-loop';
+import { defer } from '../../shared/env/event-loop';
 
 let items = [];
 

@@ -1,5 +1,7 @@
 // @flow
 
-import App from './component/App';
+import { createVNode } from '../../src/vdom/node/createVNode';
+import ReactiveHelloWorld from './component/ReactiveHelloWorld';
+import render from '../../src/mvvm/render';
 
-document.querySelector('#root').appendChild(App);
+render(<ReactiveHelloWorld />, document.querySelector('#root'));

@@ -1,7 +1,7 @@
 // @flow
 
 import { isSVG } from './tags';
-import omit  from 'ramda/src/omit';
+import omit from 'ramda/src/omit';
 
 export const IS_NON_DIMENSIONAL = /acit|ex(?:s|g|n|p|$)|rph|ows|mnc|ntw|ine[ch]|zoo|^ord/i;
 
@@ -10,7 +10,7 @@ export const IS_NON_DIMENSIONAL = /acit|ex(?:s|g|n|p|$)|rph|ows|mnc|ntw|ine[ch]|
  * @param node
  * @return {Node}
  */
-export const cloneNode = node => {
+export const cloneNode = (node: HTMLElement) => {
   const clone = node.cloneNode(true);
 
   // 注意，这里就是需要遍历原型链上所有属性
@@ -28,7 +28,7 @@ export const cloneNode = node => {
  * @param tagName
  * @return {Element}
  */
-export const createDOMElementByTag = (tagName: string) => {
+export const createElementByTag = (tagName: string) => {
   if (isSVG(tagName)) {
     return document.createElementNS('http://www.w3.org/2000/svg', tagName);
   }
@@ -48,6 +48,22 @@ export const setAttribute = (tagName, el, name, value) => {
     el.setAttribute(name, value);
   } else {
     el.setAttributeNS(null, name, value);
+  }
+};
+
+/**
+ * Description 设置批量的
+ * @param el
+ * @param attrs
+ */
+export const setAttributes = (el: HTMLElement, attrs: Object) => {
+  for (let key in attrs) {
+    if (attrs[key] === void 666) {
+      el.removeAttribute(key);
+    } else {
+      let value = props[key];
+      setAttribute(el.tagName, el, key, value);
+    }
   }
 };
 

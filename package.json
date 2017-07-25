@@ -24,6 +24,8 @@
   "main": "index.js",
   "scripts": {
     "start": "better-npm-run start:dll && better-npm-run start:dev",
+    "babel": "NODE_ENV=test babel",
+    "babel-node": "NODE_ENV=test babel-node",
     "build": "npm run clean && better-npm-run build",
     "build:umd": "npm run clean && rollup -c rollup.config.js > dist/ueact.umd.min.js",
     "build:ssr": "npm run clean && better-npm-run build:ssr && better-npm-run build:server",
@@ -120,6 +122,7 @@
     "cross-spawn": "5.1.0",
     "css-loader": "0.28.4",
     "cssnano": "^3.10.0",
+    "debug": "^2.6.8",
     "eslint": "^4.1.1",
     "eslint-config-airbnb": "^15.0.2",
     "eslint-loader": "^1.8.0",

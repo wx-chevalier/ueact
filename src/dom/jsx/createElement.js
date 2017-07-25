@@ -1,6 +1,6 @@
 // @flow
 import {
-  createDOMElementByTag,
+  createElementByTag,
   getEventListeners,
   getHTMLProps,
   getStyleProps,
@@ -8,6 +8,7 @@ import {
 } from '../element/element-utils';
 import flatten from 'ramda/src/flatten';
 import classNames from 'classnames';
+import type { propsType } from '../../../types/flow/types';
 
 /**
  * Description 从 JSX 中构建虚拟 DOM
@@ -15,7 +16,7 @@ import classNames from 'classnames';
  * @param props
  * @param childrenArgs
  */
-export function createDOMElement(
+export function createElement(
   tagName: string,
   props: propsType,
   ...childrenArgs: [any]
@@ -26,7 +27,7 @@ export function createDOMElement(
   // 处理所有子元素，如果子元素为单纯的字符串，则直接创建文本节点
   const children = flatten(childrenArgs).map(child => {
     // 如果子元素同样为 Element，则创建该子元素的副本
-    if (child instanceof Element) {
+    if (child instanceof HTMLElement) {
       return child;
     }
 
@@ -38,7 +39,7 @@ export function createDOMElement(
   });
 
   // 从标签中创建元素
-  const el = createDOMElementByTag(tagName);
+  const el = createElementByTag(tagName);
 
   // 同时支持 class 与 className 设置
   const className = props.class || props.className;
@@ -79,3 +80,6 @@ export function createDOMElement(
 
   return el;
 }
+
+// 为 createElement 取个别名，方便引用
+export const createElementAlias = createElement;

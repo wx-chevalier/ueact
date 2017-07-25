@@ -152,13 +152,6 @@ if (!__DEV__) {
   htmlPages.forEach(function(p) {
     prodPlugins.push(new HtmlWebpackPlugin(p));
   });
-
-  // 添加离线插件
-  prodPlugins.push(
-    new OfflinePlugin({
-      externals: offlineExternals
-    })
-  );
 }
 
 exports.prodPlugins = prodPlugins;

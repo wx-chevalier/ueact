@@ -47,7 +47,7 @@ export function observeDOM(ele: Element, context = {}, Babel: any = undefined) {
         [
           'transform-react-jsx',
           {
-            pragma: 'Ueact.createDOMElement'
+            pragma: 'Ueact.createElement'
           }
         ]
       ]

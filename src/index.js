@@ -1,7 +1,7 @@
 // @flow
 
-import { createDOMElement as _createDOMElement } from './dom/jsx/createDOMElement';
+import { createElement as _createElement } from './dom/jsx/createElement';
 import { observeDOM as _observeDOM } from './mvvm/dom/observeDOM';
 
-export const createDOMElement = _createDOMElement;
+export const createElement = _createElement;
 export const observeDOM = _observeDOM;

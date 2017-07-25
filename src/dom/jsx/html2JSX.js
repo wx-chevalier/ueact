@@ -1,7 +1,12 @@
 // @flow
 
+/**
+ * Description 将 HTML 格式的不完全 JSX 转化为 标准 JSX
+ * @param html
+ * @return {string}
+ */
 export function html2JSX(html: string) {
-  return completeInputSlash(trimEventQuote(trimValueQuote(html)));
+  return completeAutoCloseSlash(trimEventQuote(trimValueQuote(html)));
 }
 
 /**
@@ -10,7 +15,7 @@ export function html2JSX(html: string) {
  * @param html
  * @return {string}
  */
-export function completeInputSlash(html: string) {
+export function completeAutoCloseSlash(html: string) {
   let tmpStr = html;
 
   // 匹配所有的监听
@@ -46,6 +51,12 @@ export function trimEventQuote(html: string) {
   return tmpStr;
 }
 
+/**
+ * Description 移除 value 值的额外空格
+ * `value="{state.a}"` => `value={state.a}`
+ * @param html
+ * @return {string}
+ */
 export function trimValueQuote(html: string) {
   let tmpStr = html;
 

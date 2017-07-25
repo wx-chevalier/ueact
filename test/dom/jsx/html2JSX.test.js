@@ -1,5 +1,5 @@
 // @flow
-import { completeInputSlash, trimEventQuote } from '../../src/dom/jsx/html2JSX';
+import { completeInputSlash, trimEventQuote } from '../../../src/dom/jsx/html2JSX';
 
 const testHTML = `
  <header class="header">

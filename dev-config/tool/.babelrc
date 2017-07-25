@@ -14,7 +14,7 @@
     "async-to-promises",
     [
       "transform-react-jsx", {
-        "pragma": "createDOMElement"
+        "pragma": "createVNode"
       }
     ]
   ],
