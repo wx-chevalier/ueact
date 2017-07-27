@@ -5,9 +5,12 @@
 
 # Ueact: 彻底的渐进式前端框架
 
+截止到目前，Ueact 并不是一个严谨的框架，笔者在在编写该框架的过程中始终遵循分层独立原则，更多的倾向于框架的可读性与可解释性，不可避免地会影响性能。笔者编写该框架的初衷也是希望方便感兴趣的读者了解 React/Vue.js 这样框架的原理与基本代码结构；不过笔者也吸收了像 preact、anu 这样优秀的轻量级框架的优化方向。不过笔者代码写得差也不要当真嘛，Just For Fun!
+
 ## Online Demo
 
 - [基于 JSX 与 Observer-X 的简单计数器](http://wxyyxc1992.github.io/ueact/browser/count.html)
+
 - [TODOMVC](http://wxyyxc1992.github.io/ueact/browser/todomvc.html)
 
 - [基本的 VNode 算法演示](http://wxyyxc1992.github.io/ueact/browser/vnode.html)
@@ -18,6 +21,10 @@
 
 - [React](https://github.com/facebook/react): A declarative, efficient, and flexible JavaScript library for building user interfaces.
 - [Preact](https://github.com/developit/preact): [preact-render-to-string](https://github.com/developit/preact-render-to-string)
+- [anu](https://github.com/RubyLouvre/anu): 读作 安努 ，苏美尔的主神，开天辟地。一个无痛替换线上 React 的迷你 React 框架。
+
+****
+
 - [Vue](https://github.com/vuejs/vue)
 - [Moon]()
 - [San](https://github.com/ecomfe/san): a MVVM Component Framework for the Web

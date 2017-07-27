@@ -1,7 +1,7 @@
 // @flow
 const debug = require('debug')('vnode');
 
-import { createVNode } from '../../../src/vdom/node/createVNode';
+import { createVNode } from '../../../src/isomorphic/vdom/node/createVNode';
 import { shuffle } from '../../../src/shared/util/array';
 
 let NameLabel = props =>

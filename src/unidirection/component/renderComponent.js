@@ -1,5 +1,0 @@
-// @flow
-
-export function renderComponent() {
-  
-}

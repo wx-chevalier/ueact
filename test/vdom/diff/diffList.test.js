@@ -1,6 +1,6 @@
 // @flow
 
-import { diffList } from '../../../src/vdom/diff/diffList';
+import { diffList } from '../../../src/isomorphic/vdom/diff/diffList';
 
 describe('测试 diffList 完整工作流', () => {
   it('数组重排序与属性替换', () => {

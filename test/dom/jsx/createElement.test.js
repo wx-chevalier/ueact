@@ -1,5 +1,5 @@
 // @flow
-import { createElement } from '../../../src/dom/jsx/createElement';
+import { createElement } from '../../../src/platform/dom/jsx/createElement';
 
 describe('测试 createElement', () => {
   it('createElement 创建子元素为空的单标签', () => {
