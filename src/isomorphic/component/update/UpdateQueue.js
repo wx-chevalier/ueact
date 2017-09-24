@@ -5,7 +5,7 @@ import Component from '../classic/Component';
  * Description
  * 等价于 React ReactNoopUpdateQueue，用于定义通用的 Updater 接口
  */
-export default class Updater {
+export default class UpdateQueue {
   /**
    * Description 检测某个复合组件是否已经被挂载
    * @param {Component} publicInstance The instance we want to test.

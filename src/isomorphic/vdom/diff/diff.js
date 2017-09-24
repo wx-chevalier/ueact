@@ -1,13 +1,13 @@
 /** @flow */
 
 import VNode from '../node/VNode';
-import { isStringAlias as isString } from '../../../shared/util/type';
+import { isStringAlias as isString } from '../../../shared/ds/type';
 import {
   patchProps,
   patchReorder,
   patchReplace,
   patchText
-} from '../patch/path-actions';
+} from '../patch/patch-actions';
 import { diffList } from './diffList';
 
 /**

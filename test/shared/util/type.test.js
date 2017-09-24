@@ -1,6 +1,6 @@
 // @flow
 
-import { isFunction } from '../../../src/shared/util/type';
+import { isFunction } from '../../../src/shared/ds/type';
 describe('测试类型判断函数', () => {
   test('测试 isFunction', () => {
     expect(isFunction(() => {})).toBeTruthy();

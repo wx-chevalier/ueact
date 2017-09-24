@@ -2,7 +2,7 @@
 const debug = require('debug')('vnode');
 
 import { createVNode } from '../../../src/isomorphic/vdom/node/createVNode';
-import { shuffle } from '../../../src/shared/util/array';
+import { shuffle } from '../../../src/shared/ds/array';
 
 let NameLabel = props =>
   <span className="name">

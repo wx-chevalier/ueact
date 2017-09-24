@@ -8,11 +8,15 @@ import Component from '../../../isomorphic/component/classic/Component';
  * 等价于 preact 中的 src/components.js
  *
  */
-export default class UniComponent extends Component {
-  static displayName = 'UniComponent';
+export default class UniComponent<P, S> extends Component<P, S> {
+  /** 组件展示名 */
+  static displayName: string = 'UniComponent';
 
-  // 渲染回调
+  /** 渲染回调 */
   _renderCallbacks: Array<Function> = [];
+
+  /** 组件内的暂缓刷新的状态 */
+  _pendingState: S | null = null;
 
   /**
    * Description 继承自 Component 父类的构造函数

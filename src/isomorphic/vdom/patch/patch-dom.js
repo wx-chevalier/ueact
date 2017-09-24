@@ -5,11 +5,11 @@ import {
   REORDER,
   REPLACE,
   TEXT
-} from '../../../isomorphic/vdom/patch/path-actions';
-import { setAttributes } from '../element/element-utils';
+} from './patch-actions';
+import { setAttributes } from '../../../platform/dom/element/element-utils';
 import { DiffListMove } from '../../../../types/flow/vdom.types';
-import { toArray } from '../../../shared/util/array';
-import { renderVNode } from '../render';
+import { toArray } from '../../../shared/ds/array';
+import { renderVNode } from '../../../platform/dom/render';
 
 /**
  * Description 执行真实的补丁修复

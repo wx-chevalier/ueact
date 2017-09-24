@@ -3,10 +3,10 @@
 import VNode from '../../../isomorphic/vdom/node/VNode';
 import UniComponent from './UniComponent';
 import { instantiateComponent } from '../../../isomorphic/component/utils/instantiateComponent';
-import { isFunction } from '../../../shared/util/type';
+import { isFunction } from '../../../shared/ds/type';
 import StackReconciler from '../reconciler/StackReconciler';
 import type { HostParentType } from '../../../../types/flow/vdom.types';
-import UniUpdater from "../reconciler/UniUpdater";
+import UniUpdateQueue from '../reconciler/UniUpdateQueue';
 
 /**
  * An incrementing ID assigned to each component when it is mounted. This is
@@ -18,16 +18,17 @@ let nextMountID = 1;
 
 /**
  * Description
- * 等价于 React 中 ReactCompositeComponent 与 ReactDOMComponent 中实现的功能
+ * 等价于 React 中 ReactCompositeComponent 中实现的功能
  * 等价于 preact 中 src/vdom/component.js 中实现的功能
  */
 export default class UniCompositeComponent {
-  // 这个 VNode 存放的是尚未创建组件实例的，即未渲染子组件与子元素的原始虚拟结点
+  /** 这个 VNode 存放的是尚未创建组件实例的，即未渲染子组件与子元素的原始虚拟结点 */
   // <CustomComponent/> => VNode{ nodeName = CustomComponent }
   shallowVNode: VNode;
 
-  // 该 VNode 对应的组件实例
+  /** 该 VNode 对应的组件实例 */
   _instance: UniComponent;
+
 
   /**
    * Description 默认构造函数
@@ -45,9 +46,13 @@ export default class UniCompositeComponent {
   mountComponent(hostParent: HostParentType): HTMLElement {
     // 创建实例并且创建对应的 VNode，这里屏蔽了普通组件与函数式组件的差异
     // 这里的 Instance 是直接通过 new 创建，因此肯定为 UniComponent 或者 PureComponent
-    this._instance = instantiateComponent(this.shallowVNode, null, UniComponent);
+    this._instance = instantiateComponent(
+      this.shallowVNode,
+      null,
+      UniComponent
+    );
 
-    this._instance.updater = UniUpdater;
+    this._instance._updateQueue = UniUpdateQueue;
 
     const {
       componentWillMount,

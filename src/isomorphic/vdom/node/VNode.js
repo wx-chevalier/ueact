@@ -9,18 +9,15 @@ import type { NodeNameType } from '../../../../types/flow/vdom.types';
  * 等价于src/isomorphic/classic/element/ReactElement
  */
 export default class VNode {
-  /**
-   * Required Properties
-   */
+
+  /** Required Properties */
 
   nodeName: NodeNameType;
 
   /** 该 VNode 对应的键 */
   key: any;
 
-  /**
-   * Optional Properties
-   */
+  /** Optional Properties */
 
   /** 该 VNode 中子节点为 VNode 的数目，用于在深度优先遍历时作为某个节点的唯一标识 */
   count: Number;
@@ -28,9 +25,7 @@ export default class VNode {
   /** 该 VNode 关联的 Component 实例 */
   componentInstance: Component;
 
-  /**
-   * Private Properties
-   */
+  /** Private Properties */
 
   /** 该 VNode 渲染之后的 DOM 元素句柄*/
   _ref: HTMLElement;

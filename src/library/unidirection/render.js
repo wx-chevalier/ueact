@@ -5,7 +5,7 @@ import UniCompositeComponent from './component/UniCompositeComponent';
 import { createElementAlias } from '../../platform/dom/jsx/createElement';
 import type { HostParentType } from '../../../types/flow/vdom.types';
 import { mountComponent } from './component/mountComponent';
-import { isFunctionAlias } from '../../shared/util/type';
+import { isFunctionAlias } from '../../shared/ds/type';
 
 /**
  * Description 渲染某个 VNode 到 HTML 元素

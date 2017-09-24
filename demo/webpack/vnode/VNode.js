@@ -2,8 +2,8 @@
 import { createVNode } from '../../../src/isomorphic/vdom/node/createVNode';
 
 import { diff } from '../../../src/isomorphic/vdom/diff/diff';
-import patch from '../../../src/platform/dom/patch/patch';
-import { shuffle } from '../../../src/shared/util/array';
+import patch from '../../../src/isomorphic/vdom/patch/patch-dom';
+import { shuffle } from '../../../src/shared/ds/array';
 import {renderVNode} from "../../../src/platform/dom/render";
 
 const data = [

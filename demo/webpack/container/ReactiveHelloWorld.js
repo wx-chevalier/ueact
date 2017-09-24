@@ -3,8 +3,8 @@
 import { createVNode } from '../../../src/isomorphic/vdom/node/createVNode';
 import ReactiveComponent from '../../../src/library/mvvm/component/ReactiveComponent';
 
-class Count extends ReactiveComponent {
-  state = {
+class Count extends ReactiveComponent<P, S> {
+  state: { [string]: any } = {
     count: 0
   };
 

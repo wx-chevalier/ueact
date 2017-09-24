@@ -12,9 +12,9 @@ import type { propsType } from '../../../../types/flow/types';
 
 /**
  * Description 从 JSX 中构建虚拟 DOM
- * @param tagName
- * @param props
- * @param childrenArgs
+ * @param tagName 标签名
+ * @param props 属性
+ * @param childrenArgs 子元素列表
  */
 export function createElement(
   tagName: string,

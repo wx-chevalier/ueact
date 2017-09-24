@@ -4,7 +4,7 @@ import Component from '../classic/Component';
 import { createEmptyVNode } from '../../vdom/node/vnode-utils';
 import PureComponent from '../classic/PureComponent';
 import type { NodeNameType } from '../../../../types/flow/vdom.types';
-import { isFunction } from '../../../shared/util/type';
+import { isFunction } from '../../../shared/ds/type';
 import VNode from '../../vdom/node/VNode';
 
 /** 存放所有的 Components 实例，以方便进行组件复用

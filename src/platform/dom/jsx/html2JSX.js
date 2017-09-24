@@ -19,9 +19,9 @@ export function completeAutoCloseSlash(html: string) {
   let tmpStr = html;
 
   // 匹配所有的监听
-  const regex = /<input.*>/g;
+  const regex = /<(input|img).*>/g;
 
-  let match:Array<any>;
+  let match: Array<any>;
 
   while ((match = regex.exec(tmpStr))) {
     tmpStr = tmpStr.replace(match[0], match[0].replace(/>/g, '/>'));
@@ -31,7 +31,7 @@ export function completeAutoCloseSlash(html: string) {
 }
 
 /**
- * Description 去除输入的 HTML 中的事件监听的空格
+ * Description 去除输入的 HTML 中的事件监听的引号
  * `onclick="{methods.handleClick}"` => `onclick={methods.handleClick}`
  * @return {string}
  * @param html
@@ -42,7 +42,7 @@ export function trimEventQuote(html: string) {
   // 匹配所有的监听
   const regex = /on\w*="{[\w|\.]*}"/g;
 
-  let match:Array<any>;
+  let match: Array<any>;
 
   while ((match = regex.exec(tmpStr))) {
     tmpStr = tmpStr.replace(match[0], match[0].replace(/"/g, ''));
@@ -52,7 +52,7 @@ export function trimEventQuote(html: string) {
 }
 
 /**
- * Description 移除 value 值的额外空格
+ * Description 移除 value 值的额外引号
  * `value="{state.a}"` => `value={state.a}`
  * @param html
  * @return {string}
@@ -63,7 +63,7 @@ export function trimValueQuote(html: string) {
   // 匹配所有的监听
   const regex = /value\w*="{[\w|\.]*}"/g;
 
-  let match:Array<any>;
+  let match: Array<any>;
 
   while ((match = regex.exec(tmpStr))) {
     tmpStr = tmpStr.replace(match[0], match[0].replace(/"/g, ''));

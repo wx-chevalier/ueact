@@ -21,6 +21,7 @@
 
 - [React](https://github.com/facebook/react): A declarative, efficient, and flexible JavaScript library for building user interfaces.
 - [Preact](https://github.com/developit/preact): [preact-render-to-string](https://github.com/developit/preact-render-to-string)
+- [Infero](https://github.com/infernojs/inferno): An extremely fast, React-like JavaScript library for building modern user interfaces.
 - [anu](https://github.com/RubyLouvre/anu): 读作 安努 ，苏美尔的主神，开天辟地。一个无痛替换线上 React 的迷你 React 框架。
 
 ****
@@ -65,3 +66,7 @@ updated — called after the DOM was updated
 beforeDestroy — called before an instance is about to be destroyed but full functionality of the instance is still available
 
 destroy — called after the instance has been destroyed
+
+# Benchmark
+
+- [Results for js web frameworks benchmark – round 6](https://hackernoon.com/top-resources-to-explore-react-fiber-9a2b19114520)

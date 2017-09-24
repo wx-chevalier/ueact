@@ -3,7 +3,7 @@ import { observe } from 'observer-x/dist/observer-x.es';
 
 import ReactiveComponent from './ReactiveComponent';
 import { diff } from '../../../isomorphic/vdom/diff/diff';
-import patch from '../../../platform/dom/patch/patch';
+import patch from '../../../isomorphic/vdom/patch/patch-dom';
 
 /**
  * Description 挂载某个 ReactiveComponent
