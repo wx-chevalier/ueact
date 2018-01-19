@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Count With Ueact</title>
+    <style>
+        .red{
+            color:red;
+        }
+
+        .history > p > span{
+            margin-right: 1em;
+        }
+    </style>
+</head>
+<body>
+<div id="inline-jsx">
+    <div class="header">
+        <svg>
+            <circle cx="64" cy="64" r="64" style="fill: #00ccff;"></circle>
+        </svg>
+        <h1>
+            Custom DOM JSX
+        </h1>
+        <h2 class="red">
+            {
+                `Current Count: ${state.count}`
+            }
+        </h2>
+        <button class="link" onClick={methods.handleClick}>
+            Add One or Your Input
+        </button>
+        <input type="text" value={state.delta} onChange={methods.handleChange}>
+        <span id="items">
+            <h3>
+                Count History:
+            </h3>
+            <div class="history">
+                <p>
+                    <span>编号</span>
+                    <span>时间</span>
+                    <span>数值</span>
+                </p>
+                {
+                    state.items.map(function(item,index){
+                        return <p>
+                                <span>{index}</span>
+                                <span>{Date().toLocaleString()}</span>
+                                <span>{item}</span>
+                               </p>;
+                    })
+                }
+            </div>
+        </span>
+    </div>
+</div>
+</body>
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<script src="https://unpkg.com/ueact@0.0.1/dist/ueact.umd.min.js"></script>
+<script>
+  var ele = document.querySelector("#inline-jsx");
+
+  Ueact.observeDOM(
+    ele,
+    {
+      state: {
+        count: 0,
+        delta: 1,
+        items: [1, 2, 3]
+      },
+      methods: {
+        handleClick: function () {
+          this.state.count+=this.state.delta;
+          this.state.items.push(this.state.count);
+        },
+        handleChange:function (e) {
+          let value = parseInt(e.target.value);
+          if(!Number.isNaN(value)){
+            this.state.delta = value;
+          }
+        }
+      },
+      hooks: {
+        mounted: function () {
+          console.log('mounted');
+        },
+        updated:function () {
+          console.log('updated');
+        }
+      }
+    },
+    Babel
+  );
+</script>
+</html>
