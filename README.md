@@ -1,9 +1,8 @@
+![default](https://user-images.githubusercontent.com/5803001/40315034-d8d2c5e6-5d4c-11e8-85c7-09b80869d3ae.png)
 
-> 重要！Ueact 只是实验性框架，请勿在任何生产环境下使用，笔者只是想严肃地自己撸一遍现有的前端框架。
+# Ueact: 渐进式，多调和策略，多渲染终端的乐高式前端框架
 
-![](https://coding.net/u/hoteam/p/Cache/git/raw/master/2017/6/1/logo.png)![](https://badge.fury.io/gh/wxyyxc1992%2FUeact.svg)
-
-# Ueact: 彻底的渐进式前端框架
+![](https://badge.fury.io/gh/wxyyxc1992%2FUeact.svg)
 
 截止到目前，Ueact 并不是一个严谨的框架，笔者在在编写该框架的过程中始终遵循分层独立原则，更多的倾向于框架的可读性与可解释性，不可避免地会影响性能。笔者编写该框架的初衷也是希望方便感兴趣的读者了解 React/Vue.js 这样框架的原理与基本代码结构；不过笔者也吸收了像 preact、anu 这样优秀的轻量级框架的优化方向。不过笔者代码写得差也不要当真嘛，Just For Fun!
 
@@ -70,3 +69,13 @@ destroy — called after the instance has been destroyed
 # Benchmark
 
 - [Results for js web frameworks benchmark – round 6](https://hackernoon.com/top-resources-to-explore-react-fiber-9a2b19114520)
+
+# Motivation & Credits
+
+![](https://github.com/danistefanovic/build-your-own-x/raw/master/feynman.png)
+
+# Other
+
+## Logo
+
+![](https://coding.net/u/hoteam/p/Cache/git/raw/master/2017/6/1/logo.png)
