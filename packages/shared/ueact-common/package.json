@@ -1,0 +1,22 @@
+{
+  "name": "ueact-common",
+  "version": "0.0.1",
+  "description": "common utils for ueact",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wxyyxc1992/Ueact.git"
+  },
+  "author": "wxyyxc1992",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wxyyxc1992/Ueact/issues"
+  },
+  "homepage": "https://github.com/wxyyxc1992/Ueact#readme"
+}
