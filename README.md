@@ -58,7 +58,7 @@ $ lerna bootstrap
 $ lerna exec
 ```
 
-- 使用 Rollup/Microbundle/Webpack 进行项目打包
+- 使用 Rollup/Microbundle/Webpack 进行项目打包
 
 - 使用 Parcel 运行测试界面
 
