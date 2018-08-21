@@ -41,7 +41,11 @@ Ueact 也不仅仅是框架，更包含了笔者对于微前端、交互式界�
   - [ueact-mixed-spa](./packages/micro-frontend/ueact-mixed-spa): 多框架混合 SPA
 
 * [lego](./packages/lego): 可视化界面搭建
+
   - [ueact-layout](./packages/lego/ueact-layout): 交互式动态布局库
+
+* [iot](./packages/iot): Ueact 在 IoT，智能硬件方面的探索与实践
+  - [raspberry-wechat-assistant](./packages/iot/raspberry-wechat-assistant): 基于树莓派的微信消息自动播放
 
 ## Scaffold | 脚手架
 
