@@ -1,0 +1,140 @@
+@import 'utilities/_media-query.scss';
+@import 'utilities/_family.scss';
+
+/* CSS Mobile Reset */
+
+* {
+  //将边距重置为0
+  margin: 0;
+  padding: 0;
+  border: 0;
+
+  //将盒模型的模式设置为boder-box,即将border包含在内
+  box-sizing: border-box;
+}
+
+//基准的 HTML 大小为 14px
+html {
+  font-size: 14px;
+}
+
+//对于屏幕大于 375 的,设置为 15px
+@include min-screen(375px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+//iPhone 4 与 5 top同宽度
+@include iphone4(portrait) {
+  html {
+    font-size: 14px;
+  }
+}
+
+//以 iPhone 5 为基准尺寸
+@include iphone5(portrait) {
+  html {
+    font-size: 15px;
+  }
+}
+
+//大概 1.17 倍
+@include iphone6(portrait) {
+  html {
+    font-size: 16px;
+  }
+}
+
+//大概 1.29 倍
+@include iphone6-plus(portrait) {
+  html {
+    font-size: 17px;
+  }
+}
+
+//大概 1.29 倍
+@include iphoneX(portrait) {
+  html {
+    font-size: 17px;
+  }
+}
+
+body {
+  font-family: -apple-system, system-ui, 'Helvetica Neue', 'PingFang SC',
+    'Microsoft YaHei', 'Source Han Sans SC', 'Noto Sans CJK SC',
+    'WenQuanYi Micro Hei', sans-serif;
+  font-size: 100%;
+  line-height: 1.5;
+  //将背景色重置为白色
+  background: #fff;
+  padding: 5px;
+  color: #000;
+  word-wrap: break-word;
+
+  user-select: none;
+  -webkit-text-size-adjust: none;
+}
+
+table {
+  width: auto;
+
+  /**
+  HTML中使用Tables进行布局一直是个很头疼的问题，它们使用起来很简单，但是无法进行响应式操作，并且也不方便进行全局样式设置。譬如，如果你打算为 Table 的边与单元的边添加样式，可能得到的结果如下:
+  ```
+  table {
+      width: 600px;
+      border: 1px solid #505050;
+      margin-bottom: 15px;
+      color:#505050;
+  }
+
+  td{
+      border: 1px solid #505050;
+      padding: 10px;
+  }
+  ```
+  这里存在的问题是出现了很多的重复的边，会导致视觉上不协调的情况，那么我们可以通过设置border-collapse:collapse来进行处理:
+  */
+
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: normal;
+}
+
+p img {
+  float: left;
+  margin: 0 0.8em 0.4em 0;
+  padding: 0;
+}
+
+img {
+  border: 0;
+  max-width: 100%;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}

@@ -1,0 +1,56 @@
+.dynamic_list__container {
+
+  display: inline-flex;
+  flex-direction: column;
+  padding: 1em 2em 2em;
+  background: rgb(249, 249, 249);
+
+  //每一行
+  .row {
+    display: flex;
+    justify-content: flex-start;
+    //设置基线对齐
+    align-items: baseline;
+
+    .label {
+      margin-right: 1em;
+    }
+
+    //添加按钮
+    .blue_link_button {
+
+      height: 48px;
+      width: 55px;
+      padding: 12px;
+
+    }
+  }
+
+  //按钮
+  .buttons {
+    margin-top: 1em;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    position: relative;
+
+    //表单的提示信息
+    .tip {
+
+      position: absolute;
+      left: 0;
+      
+      >p {
+        font-size: 0.8em;
+        color: #9b9b9b;
+      }
+
+    }
+
+    //设置取消按钮的边距
+    .cancel {
+      margin: 0 0.5em;
+    }
+  }
+}

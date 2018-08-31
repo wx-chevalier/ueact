@@ -1,0 +1,5 @@
+index.es.js
+webpack.config.js
+
+!index.js
+!index.css

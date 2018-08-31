@@ -1,0 +1,56 @@
+.folder_card__container {
+
+  width: 240px;
+  height: 74px;
+  line-height: 74px;
+
+  cursor: pointer;
+  transition: all 150ms linear 0ms;
+  background-color: rgba(255, 255, 255, 0.2);
+
+  .content {
+    padding-left: 14px;
+    position: relative;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  //文件夹名称
+  .folder_name {
+
+    width: 90px;
+
+    //选中状态下的文件夹名称
+    &--selected {
+      width: 120px;
+    }
+
+    margin-left: 5px;
+
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: middle;
+
+    cursor: pointer;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+  }
+
+  //Checkbox
+  .checkbox {
+
+    width: 30px !important;
+    display: none !important;
+
+    &--selected {
+
+      display: block !important;
+
+    }
+
+  }
+
+}

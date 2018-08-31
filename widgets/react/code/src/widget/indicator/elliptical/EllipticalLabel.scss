@@ -1,0 +1,12 @@
+.elliptical_label__container {
+
+  width: 100%;
+
+  .elliptical_label {
+    width: 100%;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}

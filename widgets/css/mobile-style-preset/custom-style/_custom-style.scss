@@ -1,0 +1,40 @@
+/* 定义些通用的样式标准 */
+
+.msp_container {
+
+  //设置高度为100%
+  height: 100%;
+
+  //设置背景色为white
+  background: white;
+
+}
+
+/* 定义常用字体配置 */
+
+@mixin msp_small {
+  font-size: 1em;
+}
+
+.msp_small {
+  @include msp_small;
+}
+
+@mixin msp_middle {
+  font-size: 1.5em;
+}
+
+.msp_middle {
+  @include msp_middle;
+}
+
+@mixin msp_big {
+  font-size: 2em;
+}
+
+.msp_big {
+  @include msp_big;
+}
+
+/* 定义菜单项配置 */
+@import "responsive-menu";

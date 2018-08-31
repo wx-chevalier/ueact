@@ -1,0 +1,23 @@
+.folder_grid__container {
+
+  display: flex;
+  flex-direction: column;
+
+  .folders, .files > .file_grid__container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+
+    > div {
+
+      margin: 0.5em;
+
+    }
+
+  }
+
+  .folders {
+    margin-bottom: 0.5em;
+  }
+
+}

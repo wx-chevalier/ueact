@@ -1,4 +1,4 @@
-![ueact banner](https://user-images.githubusercontent.com/5803001/43684702-8af5336a-98d7-11e8-86b8-c61f82220b29.png)
+![ueact banner](https://user-images.githubusercontent.com/5803001/44896692-a51adc00-ad2b-11e8-9be9-ac495c77932e.png)
 
 # Ueact: 渐进式，多调和策略，多渲染终端的乐高式微前端框架
 
@@ -65,27 +65,3 @@ $ lerna exec
 - 使用 Rollup/Microbundle/Webpack 进行项目打包
 
 - 使用 Parcel 运行测试界面
-
-# About
-
-![](https://coding.net/u/hoteam/p/Cache/git/raw/master/2017/6/1/logo.png)
-
-# Motivation & Credits
-
----
-
-- [React](https://github.com/facebook/react): A declarative, efficient, and flexible JavaScript library for building user interfaces.
-- [Preact](https://github.com/developit/preact): [preact-render-to-string](https://github.com/developit/preact-render-to-string)
-- [Infero](https://github.com/infernojs/inferno): An extremely fast, React-like JavaScript library for building modern user interfaces.
-- [anu](https://github.com/RubyLouvre/anu): 读作 安努 ，苏美尔的主神，开天辟地。一个无痛替换线上 React 的迷你 React 框架。
-
----
-
-- [Vue #Project#](https://github.com/vuejs/vue): A progressive, incrementally-adoptable JavaScript framework for building UI on the web.
-- [Moon #Project#](https://github.com/kbrsh/moon): Moon is a JavaScript library with a minimal API and fast view compiler. It splits up a web application into two parts: the view and the data.
-- [San #Project#](https://github.com/ecomfe/san): a MVVM Component Framework for the Web
-
----
-
-- [simple-virtual-dom #Project#](https://github.com/livoras/simple-virtual-dom): Simple virtual-dom algorithm. It has only ~500 lines of code, including very basic idea of virtual-dom algorithm.
-- [virtual-dom #Project#](https://github.com/Matt-Esch/virtual-dom): A JavaScript DOM model supporting element creation, diff computation and patch operations for efficient re-rendering

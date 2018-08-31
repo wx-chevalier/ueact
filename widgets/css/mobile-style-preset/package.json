@@ -1,0 +1,23 @@
+{
+  "name": "mobile-style-preset",
+  "version": "0.0.3",
+  "description": "Lightwight & Flexible CSS Preset For Mobile Web",
+  "main": "msp.scss",
+  "scripts": {
+    "build": "./node_modules/node-sass/bin/node-sass msp.scss dist/msp.dist.css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wxyyxc1992/Web-Frontend-Introduction-And-Best-Practices/tree/master/OpenSource/mobile-style-preset"
+  },
+  "keywords": [
+    "scss",
+    "mobile",
+    "preset",
+    "flexbox",
+    "polyfill"
+  ],
+  "author": "wxyyxc1992",
+  "license": "ISC"
+}
