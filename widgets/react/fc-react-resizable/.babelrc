@@ -1,0 +1,60 @@
+{
+  "presets": [
+    [
+      "env",
+      {
+        "modules": false,
+        "useBuiltIns": "usage"
+      }
+    ],
+    "stage-1",
+    "react"
+  ],
+  "plugins": [
+    "transform-decorators-legacy",
+    "react-hot-loader/babel",
+    [
+      "import",
+      {
+        "libraryName": "antd",
+        "style": "css"
+      }
+    ]
+  ],
+  "env": {
+    "production": {
+      "presets": ["react-optimize"],
+      "plugins": [
+        [
+          "transform-react-remove-prop-types",
+          {
+            "removeImport": true
+          }
+        ]
+      ]
+    },
+    "es-production": {
+      "presets": [
+        [
+          "env",
+          {
+            "modules": "commonjs",
+            "useBuiltIns": "usage"
+          }
+        ],
+        "react-optimize"
+      ],
+      "plugins": [
+        [
+          "transform-react-remove-prop-types",
+          {
+            "removeImport": true
+          }
+        ]
+      ]
+    },
+    "test": {
+      "presets": [["env"], "react"]
+    }
+  }
+}
