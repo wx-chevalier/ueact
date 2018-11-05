@@ -35,15 +35,18 @@ Ueact 也不仅仅是框架，更包含了笔者对于微前端、交互式界�
   - [ueact-server-render](./framework/render/ueact-server-render): 服务端渲染
   - [ueact-test-render](./framework/render/ueact-test-render): 测试用渲染
 
-* [micro-frontend](./framework/micro-frontend): 微前端
+## Architecture & Visual Builder | 架构与可视化搭建
 
-  - [ueact-rr](./framework/micro-frontend/ueact-rr): 面向 React & Redux 技术栈的微前端方案
+- [micro-frontend](./micro-frontend): 微前端
+
+  - [ueact-rr](./micro-frontend/ueact-rr): 面向 React & Redux 技术栈的微前端方案
   - [ueact-mixed-spa](./framework/micro-frontend/ueact-mixed-spa): 多框架混合 SPA
 
-* [lego](./lego): 可视化界面搭建
+- [lego](./lego): 可视化界面搭建
 
   - [ueact-layout](./lego/ueact-layout): 交互式动态布局库
-  - [ueact-]
+  - [ueact-form](./lego/ueact-form): 表单解决方案
+  - [ueact-bpm](./lego/ueact-bpm): 流程引擎
 
 ## Widgets & Fractal Components | 界面插件/碎片化组件
 
