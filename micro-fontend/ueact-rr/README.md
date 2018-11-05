@@ -4,21 +4,7 @@
 
 ## Package & Load | 应用打包与加载
 
-## IoC | 控制反转
-
-### Service Declaration & Implemention | 服务声明与实现
-
-### Serice Initialization | 服务初始化与依赖树解析
-
-## Debug | 调试
-
-### Mock API
-
-内置了 [Xiddler](https://github.com/wxyyxc1992/Pudding/tree/master/tools/xiddler) 作为 Mock 解决方案。
-
-## Runtime | 运行时特性
-
-### Navigation | 路由导航
+### AMD
 
 ```js
 // main.js
@@ -40,3 +26,21 @@ requirejs(['react', 'react-dom'], function(React, ReactDOM) {
   );
 });
 ```
+
+## IoC | 控制反转
+
+### Service Declaration & Implemention | 服务声明与实现
+
+### Serice Initialization | 服务初始化与依赖树解析
+
+- 循环依赖处理
+
+## Debug | 调试
+
+### Mock API
+
+内置了 [Xiddler](https://github.com/wxyyxc1992/Pudding/tree/master/tools/xiddler) 作为 Mock 解决方案。
+
+## Runtime | 运行时特性
+
+### Navigation | 路由导航
