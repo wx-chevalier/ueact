@@ -1,1 +1,3 @@
-
+```html
+rel="noopener noreferrer"
+```
