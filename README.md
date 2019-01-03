@@ -6,7 +6,7 @@
 
 Ueact 并不是一个严谨的框架，笔者在在编写该框架的过程中始终遵循分层独立原则，更多的倾向于框架的可读性与可解释性，不可避免地会影响性能。笔者编写该框架的初衷也是希望方便感兴趣的读者了解 React/Vue.js 这样框架的原理与基本代码结构，同时也吸收了像 preact、anu 这样优秀的轻量级框架的优化方向。不过笔者代码写得差也不要当真嘛，Just For Fun!
 
-Ueact 也不仅仅是框架，更包含了笔者对于微前端、交互式界面构建等架构/应用领域的思考与探索，以及对 [fe-boilerplate](https://github.com/wxyyxc1992/fe-boilerplate) 之上的通用模式的沉淀fe。其中的 widgets 目录 源于 fractal-components，是笔者日常工作中总结出来的应用、组件库以及组件开发模式，为了保证其独立性与复用性，笔者以不同的方式实现了组件。fractal-components 中包含了可复用的组件，还有很多纯界面化展示的组件，可以参考 [CodePen](https://codepen.io/dashboard/)。
+Ueact 也不仅仅是框架，更包含了笔者对于微前端、交互式界面构建等架构/应用领域的思考与探索，以及对 [fe-boilerplate](https://github.com/wxyyxc1992/fe-boilerplate) 之上的通用模式的沉淀。其中的 widgets 目录 源于 fractal-components，是笔者日常工作中总结出来的应用、组件库以及组件开发模式，为了保证其独立性与复用性，笔者以不同的方式实现了组件。fractal-components 中包含了可复用的组件，还有很多纯界面化展示的组件，可以参考 [CodePen](https://codepen.io/dashboard/)。
 
 # TOC | 目录
 
