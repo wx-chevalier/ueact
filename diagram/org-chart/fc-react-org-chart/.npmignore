@@ -1,7 +1,0 @@
-index.es.js
-webpack.config.js
-
-
-!dist
-!build/index.umd.js
-!build/index.umd.css

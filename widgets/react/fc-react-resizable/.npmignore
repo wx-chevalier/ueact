@@ -1,8 +1,0 @@
-src/
-dev-config/
-public/
-test/
-
-!dist
-!build/index.umd.js
-!build/index.umd.css
