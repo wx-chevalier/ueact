@@ -1,0 +1,41 @@
+{
+  "name": "observer-x",
+  "version": "0.0.7",
+  "description": "full-featured and efficient javascript object observer",
+  "keywords": [
+    "observable",
+    "proxy",
+    "object listener",
+    "streams",
+    "object observable",
+    "object watch"
+  ],
+  "directories": {
+    "test": "test"
+  },
+  "main": "dist/observer-x.js",
+  "scripts": {
+    "prepublish": "npm run build",
+    "build": "rm -rf dist/* && cross-env BABEL_ENV=production && npm run build:umd && npm run build:es",
+    "build:es": "rollup -c rollup.es.config.js > dist/observer-x.es.js",
+    "build:umd": "rollup -c rollup.config.js > dist/observer-x.js",
+    "babel-node": "cross-env BABEL_ENV=test babel-node",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "wxyyxc1992",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-jest": "^20.0.3",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-flow": "^6.23.0",
+    "babel-preset-jest": "^20.0.3",
+    "babel-preset-stage-3": "^6.24.1",
+    "cross-env": "^5.0.1",
+    "flow-bin": "^0.52.0",
+    "rollup": "^0.45.2",
+    "rollup-plugin-babel": "^2.7.1",
+    "rollup-plugin-flow": "^1.1.1",
+    "rollup-plugin-uglify": "^2.0.1"
+  },
+  "dependencies": {}
+}

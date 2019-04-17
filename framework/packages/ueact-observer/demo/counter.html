@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+
+<html>
+
+
+<head>
+  <script src="https://unpkg.com/observer-x@0.0.7/dist/observer-x.js"></script>
+
+</head>
+
+<body>
+  <div id="display"></div>
+
+
+  <script>
+    const counter = observerX.observe({ value: 0 });
+
+    // 自动触发
+    function update() {
+      display.innerHTML = counter.value;
+    }
+
+    // 变化监听
+    counter.listen(update);
+    (function loop() {
+      counter.value++;
+      requestAnimationFrame(loop);
+    })();
+  </script>
+</body>
+
+</html>
