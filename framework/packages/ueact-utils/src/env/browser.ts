@@ -1,5 +1,3 @@
-
-
 // can we use __proto__?
 export const hasProto = '__proto__' in {};
 
@@ -14,24 +12,26 @@ export const isIOS = UA && /iphone|ipad|ipod|ios/.test(UA);
 export const isChrome = UA && /chrome\/\d+/.test(UA) && !isEdge;
 
 // Firefix has a "watch" function on Object.prototype...
-export const nativeWatch = {}.watch;
+export const nativeWatch = ({} as any).watch;
 
 export let supportsPassive = false;
 if (inBrowser) {
   try {
     const opts = {};
-    Object.defineProperty(
-      opts,
-      'passive',
-      ({
-        get() {
-          /* istanbul ignore next */
-          supportsPassive = true;
-        }
-      }: Object)
-    ); // https://github.com/facebook/flow/issues/285
-    window.addEventListener('test-passive', null, opts);
+    Object.defineProperty(opts, 'passive', {
+      get() {
+        /* istanbul ignore next */
+        supportsPassive = true;
+      }
+    });
+    window.addEventListener('test-passive', null as any, opts);
   } catch (e) {}
+}
+
+declare global {
+  interface Window {
+    __VUE_DEVTOOLS_GLOBAL_HOOK__?: Function;
+  }
 }
 
 // detect devtools

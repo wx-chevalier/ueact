@@ -1,5 +1,3 @@
-
-
 import { isNative } from '../env/compatibility';
 
 let _Set;
@@ -28,10 +26,9 @@ if (typeof Set !== 'undefined' && isNative(Set)) {
 }
 
 interface ISet {
-  has(key: string | number): boolean,
-  add(key: string | number): mixed,
-  clear(): void
+  has(key: string | number): boolean;
+  add(key: string | number): any;
+  clear(): void;
 }
 
-export { _Set };
-export type { ISet };
+export { _Set, ISet };

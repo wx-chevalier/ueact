@@ -1,5 +1,3 @@
-
-
 /**
  * Description 获取对象类型
  * @param obj
@@ -12,7 +10,6 @@ export function isFunction(maybaFunction: any) {
   return type(maybaFunction) === 'Function';
 }
 export const isFunctionAlias = isFunction;
-
 
 /**
  * Description 判断传入的对象是否为字符串

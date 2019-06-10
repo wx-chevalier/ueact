@@ -1,6 +1,8 @@
+import { inBrowser } from './browser';
+
 // this needs to be lazy-evaled because vue may be required before
 // vue-server-renderer can set VUE_ENV
-let _isServer;
+let _isServer: any;
 export const isServerRendering = () => {
   if (_isServer === undefined) {
     /* istanbul ignore if */

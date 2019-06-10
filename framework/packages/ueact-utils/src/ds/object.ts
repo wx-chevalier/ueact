@@ -34,7 +34,7 @@ export function isPrimitive(value: any): boolean {
  * Objects from primitive values when we know the value
  * is a JSON-compliant type.
  */
-export function isObject(obj: mixed): boolean {
+export function isObject(obj: any): boolean {
   return obj !== null && typeof obj === 'object';
 }
 
@@ -244,7 +244,7 @@ export function genStaticKeys(modules: Array<ModuleOptions>): string {
  * Check if two values are loosely equal - that is,
  * if they are plain objects, do they have the same shape?
  */
-export function looseEqual(a: mixed, b: mixed): boolean {
+export function looseEqual(a: any, b: any): boolean {
   const isObjectA = isObject(a);
   const isObjectB = isObject(b);
   if (isObjectA && isObjectB) {
@@ -261,7 +261,7 @@ export function looseEqual(a: mixed, b: mixed): boolean {
   }
 }
 
-export function looseIndexOf(arr: Array<mixed>, val: mixed): number {
+export function looseIndexOf(arr: Array<any>, val: any): number {
   for (let i = 0; i < arr.length; i++) {
     if (looseEqual(arr[i], val)) return i;
   }

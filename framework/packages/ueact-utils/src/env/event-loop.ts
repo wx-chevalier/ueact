@@ -1,5 +1,7 @@
 import { isNative } from './compatibility';
 import { isIOS } from './browser';
+import { noop } from '../misc/func';
+import { handleError } from '../misc/error';
 
 /** 异步调用某个函数的简单实现，这里混用了 MicroTask 与 MacroTask
  *	@param {Function} callback
@@ -10,13 +12,13 @@ export const defer =
 /** 使用 MicroTask 来异步执行批次任务 */
 export const nextTick = (function() {
   // 需要执行的回调列表
-  const callbacks = [];
+  const callbacks: Function[] = [];
 
   // 是否处于挂起状态
   let pending = false;
 
   // 时间函数句柄
-  let timerFunc;
+  let timerFunc: Function;
 
   // 执行并且清空所有的回调列表
   function nextTickHandler() {
@@ -32,7 +34,7 @@ export const nextTick = (function() {
   /* istanbul ignore if */
   if (typeof Promise !== 'undefined' && isNative(Promise)) {
     let p = Promise.resolve();
-    let logError = err => {
+    let logError = (err: Error) => {
       console.error(err);
     };
     timerFunc = () => {
@@ -68,7 +70,7 @@ export const nextTick = (function() {
   }
 
   return function queueNextTick(cb?: Function, ctx?: Object) {
-    let _resolve;
+    let _resolve: Function;
     callbacks.push(() => {
       if (cb) {
         try {

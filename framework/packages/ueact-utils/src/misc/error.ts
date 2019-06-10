@@ -1,6 +1,5 @@
 import { inBrowser } from '../env/browser';
-import { warn } from './warn';
-import { config } from './config';
+import { warn } from './log';
 
 /**
  * Description 处理错误
@@ -8,7 +7,7 @@ import { config } from './config';
  * @param vm
  * @param info
  */
-export function handleError(err: Error, vm: any, info: string) {
+export function handleError(err: Error, vm: any, info: string, config: any = {}) {
   if (config.errorHandler) {
     config.errorHandler.call(null, err, vm, info);
   } else {
