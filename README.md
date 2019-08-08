@@ -4,17 +4,13 @@
 
 ![](https://badge.fury.io/gh/wxyyxc1992%2FUeact.svg)
 
-Ueact 旨在从零开始实现自定义的组件系统，多调和策略与数据流响应方式，同时能够被渲染/编译到多种组件。
+Ueact 旨在从零开始实现自定义的组件系统，多调和策略与数据流响应方式，同时能够被渲染/编译到多种组件。Ueact 并不是一个严谨的框架，笔者在在编写该框架的过程中始终遵循分层独立原则，更多的倾向于框架的可读性与可解释性，不可避免地会影响性能。笔者编写该框架的初衷也是希望方便感兴趣的读者了解 React/Vue.js 这样框架的原理与基本代码结构，同时也吸收了像 preact、anu 这样优秀的轻量级框架的优化方向。不过笔者代码写得差也不要当真嘛，Just For Fun!
 
-Ueact 并不是一个严谨的框架，笔者在在编写该框架的过程中始终遵循分层独立原则，更多的倾向于框架的可读性与可解释性，不可避免地会影响性能。笔者编写该框架的初衷也是希望方便感兴趣的读者了解 React/Vue.js 这样框架的原理与基本代码结构，同时也吸收了像 preact、anu 这样优秀的轻量级框架的优化方向。不过笔者代码写得差也不要当真嘛，Just For Fun!
-
-Ueact 也不仅仅是框架，更包含了笔者对于微前端、交互式界面构建等架构/应用领域的思考与探索，以及对 [fe-boilerplate](https://github.com/wxyyxc1992/fe-boilerplate) 之上的通用模式的沉淀。Ueact 向上支撑的 [fractal-components](https://github.com/wx-chevalier/fractal-components)，是笔者日常工作中总结出来的应用、组件库以及组件开发模式，为了保证其独立性与复用性，笔者以不同的方式实现了组件。
+Ueact 也不仅仅是框架，更包含了笔者对于微前端、交互式界面构建等架构/应用领域的思考与探索，以及对 [fe-boilerplate](https://github.com/wxyyxc1992/fe-boilerplate) 之上的通用模式的沉淀。Ueact 向上支撑的 [fractal-components](https://github.com/wx-chevalier/fractal-components) 以及 [Legoble](https://github.com/wx-chevalier/Legoble)，是笔者日常工作中总结出来的应用、组件库以及组件开发模式，为了保证其独立性与复用性，笔者以不同的方式实现了组件。
 
 # TOC | 目录
 
 ![](https://github.com/danistefanovic/build-your-own-x/raw/master/feynman.png)
-
-## Core Framework | 界面框架
 
 - [shared](./framework/shared): 通用模块
 
@@ -37,44 +33,10 @@ Ueact 也不仅仅是框架，更包含了笔者对于微前端、交互式界�
   - [ueact-server-render](./framework/render/ueact-server-render): 服务端渲染
   - [ueact-test-render](./framework/render/ueact-test-render): 测试用渲染
 
-## Architecture & Visual Builder | 架构与可视化搭建
-
-- [micro-frontend](./micro-frontend): 微前端
+* [micro-frontend](./micro-frontend): 微前端
 
   - [ueact-rr](./micro-frontend/ueact-rr): 面向 React & Redux 技术栈的微前端方案
   - [ueact-mixed-spa](./framework/micro-frontend/ueact-mixed-spa): 多框架混合 SPA
-
-- [lego](./lego): 可视化界面搭建
-
-  - [ueact-layout](./lego/ueact-layout): 交互式动态布局库
-  - [ueact-form](./lego/ueact-form): 表单解决方案
-  - [ueact-bpm](./lego/ueact-bpm): 流程引擎
-
-## Widgets & Fractal Components | 界面插件/碎片化组件
-
-- [CSS](./css): 纯 CSS 实现的组件
-
-  - [mobile-style-preset](./css/mobile-style-preset): 移动端样式预置库，CSS/SCSS
-
-- [Vanilla JS](./vanilla): 朴素 JavaScript 与 CSS 实现的组件
-
-  - [fc-draggable-toolbar](./vanilla/fc-draggable-toolbar): 可拖拽的工具栏
-
-- [React](./widgets/react): 基于 React 实现的组件
-
-  - [fc-react-responsive](./widgets/react/fc-react-responsive): React 响应式组件
-  - [fc-react-scroll](./widgets/react/fc-react-scroll): React 滚动组件
-  - [fc-react-todos](./widgets/react/fc-react-todos): React Todos 复用组件库
-  - [fc-react-animated](./widgets/react/fc-react-animated): 一系列 React 动画/动画组件
-  - [fc-react-hocs](./widgets/react/fc-react-hocs): React 中常用的高阶函数集锦
-
-- [React Native](./react-native): 基于 React Native 实现的组件
-
-- [Vue.js](./vue): Vue.js 系列组件
-
-- [Weapp](./weapp): 微信小程序组件
-
-  - [fc-weapp-mindmap](./weapp/fc-weapp-mindmap): 微信小程序中的思维脑图
 
 # Development | 开发
 
