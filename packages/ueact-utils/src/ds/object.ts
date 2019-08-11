@@ -150,6 +150,22 @@ export function extend(to: Object, _from?: Object): Object {
   return to;
 }
 
+export function objectWithoutProperties<T, K extends keyof T>(obj: T, exclude: K[]) {
+  // eslint-disable-next-line @typescript-eslint/no-object-literal-type-assertion
+  const target = {} as Pick<T, Exclude<keyof T, K>>;
+  for (const k in obj) {
+    if (
+      Object.prototype.hasOwnProperty.call(obj, k) &&
+      // @ts-ignore
+      exclude.indexOf(k) === -1
+    ) {
+      // @ts-ignore
+      target[k] = obj[k];
+    }
+  }
+  return target;
+}
+
 /**
  * Merge an Array of Objects into a single Object.
  */
