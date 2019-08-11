@@ -28,3 +28,11 @@ export function assign<T, S>(tar: T, src: S): T & S {
 export function isPromise<T = any>(value: any): value is PromiseLike<T> {
   return value && typeof value === 'object' && typeof value.then === 'function';
 }
+
+export function run(fn: Function) {
+  return fn();
+}
+
+export function runAll(fns: Function[]) {
+  fns.forEach(run);
+}

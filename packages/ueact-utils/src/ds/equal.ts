@@ -1,5 +1,9 @@
 import { isObject } from './object';
 
+export function safeNotEqual(a: any, b: any) {
+  return a != a ? b == b : a !== b || ((a && typeof a === 'object') || typeof a === 'function');
+}
+
 /**
  * Check if two values are loosely equal - that is,
  * if they are plain objects, do they have the same shape?
