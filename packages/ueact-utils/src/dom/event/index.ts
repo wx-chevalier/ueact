@@ -1,3 +1,5 @@
+export * from './delegate';
+
 export function destroyEach(iterations: any, detaching: boolean) {
   for (let i = 0; i < iterations.length; i += 1) {
     if (iterations[i]) iterations[i].d(detaching);
@@ -30,7 +32,8 @@ export function stopPropagation(fn: Function) {
   };
 }
 
-export function add_resize_listener(element: HTMLElement, fn: EventListenerOrEventListenerObject) {
+/** Add resize listener for target element */
+export function addResizeListener(element: HTMLElement, fn: EventListenerOrEventListenerObject) {
   if (getComputedStyle(element).position === 'static') {
     element.style.position = 'relative';
   }

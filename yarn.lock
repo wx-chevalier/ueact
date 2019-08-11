@@ -13065,6 +13065,13 @@ typescript@3.4.5:
   resolved "https://registry.npm.taobao.org/typescript/download/typescript-3.4.5.tgz#2d2618d10bb566572b8d7aad5180d84257d70a99"
   integrity sha1-LSYY0Qu1ZlcrjXqtUYDYQlfXCpk=
 
+ueact-utils@0.0.1:
+  version "0.0.1"
+  resolved "https://registry.npm.taobao.org/ueact-utils/download/ueact-utils-0.0.1.tgz#1be2e0261467ca51fcca83125d851a616fd4302e"
+  integrity sha1-G+LgJhRnylH8yoMSXYUaYW/UMC4=
+  dependencies:
+    uuid "^3.3.2"
+
 uglify-js@3.4.x, uglify-js@^3.1.4:
   version "3.4.9"
   resolved "http://registry.npm.taobao.org/uglify-js/download/uglify-js-3.4.9.tgz#af02f180c1207d76432e473ed24a28f4a782bae3"

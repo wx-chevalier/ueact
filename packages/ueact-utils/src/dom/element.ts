@@ -1,3 +1,27 @@
+const regex = /^(?:#([\w-]+)|(\w+)|\.([\w-]+))$/;
+
+/** Query element with flexible conditions */
+export function query(qry: string, ctx: Element | Document) {
+  let test;
+  let match;
+
+  if ((test = regex.exec(qry))) {
+    if ((match = test[3])) {
+      return ctx.getElementsByClassName(match);
+    }
+
+    if ((match = test[2])) {
+      return ctx.getElementsByTagName(match);
+    }
+
+    if ((match = test[1])) {
+      return document.getElementById(match);
+    }
+  }
+
+  return ctx.querySelectorAll(qry);
+}
+
 /** 创建元素 */
 export function element<K extends keyof HTMLElementTagNameMap>(name: K) {
   return document.createElement<K>(name);
