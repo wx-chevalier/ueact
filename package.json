@@ -95,7 +95,7 @@
   },
   "private": true,
   "workspaces": [
-    "packages/rtw-core",
-    "packages/rtw-host-app"
+    "packages/ueact-utils",
+    "packages/ueact-redux"
   ]
 }

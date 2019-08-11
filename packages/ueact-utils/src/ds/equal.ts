@@ -21,6 +21,11 @@ export function looseEqual(a: any, b: any): boolean {
   }
 }
 
+/**
+ * Get index with looseEqual
+ * @param arr
+ * @param val
+ */
 export function looseIndexOf(arr: any[], val: any): number {
   for (let i = 0; i < arr.length; i++) {
     if (looseEqual(arr[i], val)) return i;

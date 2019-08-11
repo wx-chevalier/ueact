@@ -1,13 +1,14 @@
-import { isNative } from './compatibility';
-import { isIOS } from './browser';
-import { noop } from '../misc/func';
-import { handleError } from '../misc/error';
+import { inBrowser, isNative, isIOS } from '../env';
+import { handleError, noop } from '.';
+import { now } from './utils';
 
 /** 异步调用某个函数的简单实现，这里混用了 MicroTask 与 MacroTask
  *	@param {Function} callback
  */
 export const defer =
   typeof Promise === 'function' ? Promise.resolve().then.bind(Promise.resolve()) : setTimeout;
+
+export let raf = inBrowser ? (cb: FrameRequestCallback) => requestAnimationFrame(cb) : noop;
 
 /** 使用 MicroTask 来异步执行批次任务 */
 export const nextTick = (function() {
@@ -69,7 +70,7 @@ export const nextTick = (function() {
     };
   }
 
-  return function queueNextTick(cb?: Function, ctx?: Object) {
+  return function queueNextTick(cb?: Function, ctx?: Object): void | Promise<any> {
     let _resolve: Function;
     callbacks.push(() => {
       if (cb) {
@@ -82,6 +83,7 @@ export const nextTick = (function() {
         _resolve(ctx);
       }
     });
+
     if (!pending) {
       pending = true;
       timerFunc();
@@ -95,3 +97,47 @@ export const nextTick = (function() {
     }
   };
 })();
+
+export interface Task {
+  abort(): void;
+  promise: Promise<void>;
+}
+
+const tasks = new Set<[Function, Function]>();
+let running = false;
+
+function run_tasks() {
+  tasks.forEach(task => {
+    if (!task[0](now())) {
+      tasks.delete(task);
+      task[1]();
+    }
+  });
+
+  running = tasks.size > 0;
+  if (running) raf(run_tasks);
+}
+
+export function clear_loops() {
+  // for testing...
+  tasks.forEach(task => tasks.delete(task));
+  running = false;
+}
+
+export function loop(fn: (num: number) => void): Task {
+  let task: [Function, Function];
+
+  if (!running) {
+    running = true;
+    raf(run_tasks);
+  }
+
+  return {
+    promise: new Promise<void>(fulfil => {
+      tasks.add((task = [fn, fulfil]));
+    }),
+    abort() {
+      tasks.delete(task);
+    }
+  };
+}

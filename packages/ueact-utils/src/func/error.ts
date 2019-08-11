@@ -1,12 +1,7 @@
 import { inBrowser } from '../env/browser';
 import { warn } from './log';
 
-/**
- * Description 处理错误
- * @param err
- * @param vm
- * @param info
- */
+/** 处理异常 */
 export function handleError(err: Error, vm: any, info: string, config: any = {}) {
   if (config.errorHandler) {
     config.errorHandler.call(null, err, vm, info);
