@@ -1,15 +1,18 @@
-// @flow
-import { createVNode } from '../../../src/isomorphic/vdom/node/createVNode';
-import { diff } from '../../../src/isomorphic/vdom/diff/diff';
+/* @jsx v */
+
+import { diff } from '../diff';
+import { v } from '../../node';
 
 describe('测试属性差异对比', () => {
-  let oldNode = (
+  let oldNode: any = (
     <div>
       <span className="header" />
     </div>
   );
 
-  let newNode = (
+  console.log(oldNode);
+
+  let newNode: any = (
     <div>
       <span className="headerNew" />
     </div>
@@ -33,7 +36,7 @@ describe('测试属性差异对比', () => {
 });
 
 describe('测试列表项差异对比', () => {
-  let oldNode = (
+  let oldNode: any = (
     <div>
       <span key="1">1</span>
       <span key="2">2</span>
@@ -41,7 +44,7 @@ describe('测试列表项差异对比', () => {
     </div>
   );
 
-  let newNode = (
+  let newNode: any = (
     <div>
       <span key="3">3a</span>
       <span key="1">1</span>

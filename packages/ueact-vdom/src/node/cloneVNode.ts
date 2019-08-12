@@ -1,7 +1,8 @@
 // @flow
 
-import VNode from './VNode';
-import createVNode from './createVNode';
+import { VNode } from './VNode';
+import { createVNode } from './createVNode';
+import { VNodePropsType } from './types';
 
 /**
  * Description 克隆某个虚拟节点
@@ -10,11 +11,11 @@ import createVNode from './createVNode';
  * @param childrenArgs
  * @return {*}
  */
-export function cloneVNode(vNode: VNode, props: Object, ...childrenArgs) {
+export function cloneVNode(vNode: VNode, props: VNodePropsType, ...childrenArgs: any[]) {
   return createVNode(
     vNode.tagName,
     Object.assign({}, vNode.props, props),
-    childrenArgs || vNode.children
+    ...(childrenArgs || vNode.children)
   );
 }
 

@@ -2,11 +2,9 @@
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint"],
   "extends": [
-    "react",
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended",
-    "prettier/@typescript-eslint",
-    "prettier/react"
+    "prettier/@typescript-eslint"
   ],
   "rules": {
     "no-invalid-this": "off"

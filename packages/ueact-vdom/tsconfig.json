@@ -1,6 +1,7 @@
 {
   "extends": "../../tsconfig.json",
   "compilerOptions": {
+    "jsx": "preserve",
     "resolveJsonModule": true,
     "downlevelIteration": true
   },

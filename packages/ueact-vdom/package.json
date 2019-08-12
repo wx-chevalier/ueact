@@ -3,8 +3,7 @@
   "description": "ueact-vdom",
   "license": "MIT",
   "keywords": [
-    "webpack",
-    "react"
+    "ueact-vdom"
   ],
   "name": "ueact-vdom",
   "version": "0.0.1",
@@ -37,6 +36,7 @@
   },
   "dependencies": {
     "fast-deep-equal": "^2.0.1",
+    "ueact-utils": "0.0.2",
     "uuid": "^3.3.2"
   },
   "devDependencies": {
@@ -59,7 +59,6 @@
     "eslint-plugin-import": "^2.17.2",
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-prettier": "^3.0.1",
-    "eslint-plugin-react": "^7.13.0",
     "file-loader": "3.0.1",
     "fork-ts-checker-webpack-plugin": "^1.3.3",
     "html-webpack-plugin": "^3.2.0",
@@ -76,7 +75,7 @@
     "parcel-bundler": "^1.12.3",
     "postcss-loader": "3.0.0",
     "prettier": "^1.17.1",
-    "react-hot-loader": "^4.8.5",
+    "ramda": "^0.26.1",
     "resolve-url-loader": "3.1.0",
     "rimraf": "^2.6.3",
     "style-loader": "0.23.1",
@@ -86,7 +85,6 @@
     "tsconfig-paths-webpack-plugin": "^3.2.0",
     "tslint": "^5.16.0",
     "tslint-config-prettier": "^1.18.0",
-    "tslint-react": "^4.0.0",
     "typescript": "3.4.5",
     "uglifyjs-webpack-plugin": "2.1.3",
     "url-loader": "^1.1.2",

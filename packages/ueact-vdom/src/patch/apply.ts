@@ -1,25 +1,9 @@
-// @flow
-
-import {
-  PROPS,
-  REORDER,
-  REPLACE,
-  TEXT
-} from './patch-actions';
-import { setAttributes } from '../../../platform/dom/element/element-utils';
-import { DiffListMove } from '../../../../types/flow/vdom.types';
-import { toArray } from '../../../shared/ds/array';
-import { renderVNode } from '../../../platform/dom/render';
-
 /**
  * Description 执行真实的补丁修复
  * @param el
  * @param patches
  */
-export default function patch(
-  el: HTMLElement,
-  patches: Object
-): HTMLElement | void {
+export default function patch(el: HTMLElement, patches: Object): HTMLElement | void {
   let walker = {
     index: 0
   };
@@ -65,10 +49,7 @@ export function dfsWalk(el: HTMLElement, walker, patches): HTMLElement | void {
  * @param el
  * @param currentPatches
  */
-export function applyPatches(
-  el: HTMLElement,
-  currentPatches: Array
-): HTMLElement | void {
+export function applyPatches(el: HTMLElement, currentPatches: Array): HTMLElement | void {
   // 新创建的元素
   let newEl = null;
 
@@ -144,9 +125,9 @@ function reorderChildren(el: HTMLElement, moves: Array<DiffListMove>) {
       let insertNode = maps[move.item.key]
         ? maps[move.item.key] // 重用某个旧的已经经过 Patch 的结点
         : typeof move.item === 'object'
-          ? // 如果是 VNode 对象，则直接执行该节点的渲染结果
-            renderVNode(move.item)
-          : document.createTextNode(move.item);
+        ? // 如果是 VNode 对象，则直接执行该节点的渲染结果
+          renderVNode(move.item)
+        : document.createTextNode(move.item);
 
       // 在静态结点列表中插入
       staticNodeList.splice(index, 0, insertNode);

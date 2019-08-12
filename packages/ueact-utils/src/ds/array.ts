@@ -6,6 +6,9 @@ export function isValidArray(arrayLike: any) {
   return Array.isArray(arrayLike) && arrayLike.length > 0;
 }
 
+export const flatten = (list: Array<any>): Array<any> =>
+  list.reduce((a: any, b: any) => a.concat(Array.isArray(b) ? flatten(b) : b), []);
+
 /**
  * Shuffles array in place. ES6 version
  * @param {Array} a items The array containing the items.

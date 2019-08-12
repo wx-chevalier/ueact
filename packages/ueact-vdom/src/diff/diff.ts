@@ -1,13 +1,7 @@
-/** @flow */
+import { isString } from 'ueact-utils';
 
-import VNode from '../node/VNode';
-import { isStringAlias as isString } from '../../../shared/ds/type';
-import {
-  patchProps,
-  patchReorder,
-  patchReplace,
-  patchText
-} from '../patch/patch-actions';
+import { VNode, VNodeType } from './../node';
+import { Patches, patchProps, patchReorder, patchReplace, patchText, Patch } from '../patch';
 import { diffList } from './diffList';
 
 /**
@@ -20,7 +14,7 @@ export function diff(oldNode: VNode, newNode: VNode) {
   let index = 0;
 
   // 遍历过程中标记处的需要修正的地方
-  let patches = {};
+  let patches: Patches = {};
 
   // 深度优先遍历整棵树
   dfsWalk(oldNode, newNode, index, patches);
@@ -35,12 +29,7 @@ export function diff(oldNode: VNode, newNode: VNode) {
  * @param index
  * @param patches
  */
-export function dfsWalk(
-  oldNode: VNode,
-  newNode: VNode,
-  index: number,
-  patches: Object
-) {
+export function dfsWalk(oldNode: VNode, newNode: VNode, index: number, patches: Patches) {
   // 本层需要修正的地方
   let currentPatch = [];
 
@@ -51,10 +40,7 @@ export function dfsWalk(
     if (oldNode !== newNode) {
       currentPatch.push(patchText(newNode));
     }
-  } else if (
-    oldNode.nodeName === newNode.nodeName &&
-    oldNode.key === newNode.key
-  ) {
+  } else if (oldNode.tagName === newNode.tagName && oldNode.key === newNode.key) {
     // 如果节点的标签和键一致，则开始比较 Props 与 Children
     let propsPatches = diffProps(oldNode, newNode);
 
@@ -64,13 +50,7 @@ export function dfsWalk(
 
     // 比较子元素差异
     if (!isIgnoreChildren(newNode)) {
-      diffChildren(
-        oldNode.children,
-        newNode.children,
-        index,
-        patches,
-        currentPatch
-      );
+      diffChildren(oldNode.children, newNode.children, index, patches, currentPatch);
     }
   } else {
     currentPatch.push(patchReplace(newNode));
@@ -90,17 +70,21 @@ export function dfsWalk(
  * @param currentPatch
  */
 function diffChildren(
-  oldChildren: Array<VNode>,
-  newChildren: Array<VNode>,
+  oldChildren: Array<VNodeType>,
+  newChildren: Array<VNodeType>,
   index: number,
-  patches: Object,
-  currentPatch: Array
+  patches: Patches,
+  currentPatch: Patch[]
 ) {
+  if (typeof oldChildren === 'string' || typeof newChildren === 'string') {
+    return;
+  }
+
   // 比较两个列表的差异
-  let diffs = diffList(oldChildren, newChildren, 'key');
+  let diffs = diffList(oldChildren as VNode[], newChildren as VNode[], 'key');
 
   // 获取新的子元素，这里的子元素的排序方式与原子元素一致
-  newChildren = diffs.children;
+  newChildren = diffs.children as any;
 
   // 如果存在需要移动的部分
   if (diffs.moves.length) {
@@ -110,19 +94,19 @@ function diffChildren(
   }
 
   // 表示当前节点的左子节点
-  let leftNode: VNode = null;
+  let leftNode: VNode | null = null;
   let currentNodeIndex = index;
 
   oldChildren.forEach((child, i) => {
     let newChild = newChildren[i];
 
     currentNodeIndex =
-      leftNode && leftNode.count
-        ? currentNodeIndex + leftNode.count + 1
-        : currentNodeIndex + 1;
+      leftNode && leftNode.count ? currentNodeIndex + leftNode.count + 1 : currentNodeIndex + 1;
 
-    dfsWalk(child, newChild, currentNodeIndex, patches);
-    leftNode = child;
+    if (typeof child !== 'string' && typeof newChild !== 'string') {
+      dfsWalk(child, newChild, currentNodeIndex, patches);
+      leftNode = child;
+    }
   });
 }
 
@@ -176,6 +160,6 @@ export function diffProps(oldNode: VNode, newNode: VNode) {
  * @param node
  * @return {boolean}
  */
-export function isIgnoreChildren(node) {
+export function isIgnoreChildren(node: VNode) {
   return node.props && node.props.hasOwnProperty('ignore');
 }

@@ -1,6 +1,4 @@
-// @flow
-
-import VNode from './VNode';
+import { VNode } from './VNode';
 
 export const createEmptyVNode = (text: string = '') => {
   const node = new VNode();
@@ -13,5 +11,5 @@ export const createEmptyVNode = (text: string = '') => {
  * @return {VNode}
  */
 export function createTextVNode(val: string | number) {
-  return new VNode(undefined, undefined, undefined, String(val));
+  return new VNode(undefined, undefined, [String(val)]);
 }

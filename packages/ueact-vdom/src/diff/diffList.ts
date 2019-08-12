@@ -1,5 +1,5 @@
-// @flow
-// clone from https://github.com/livoras/list-diff/blob/master/lib/diff.js
+import { VNode } from '../node';
+import { Patch } from '../patch/actions';
 
 /**
  * Diff two list in O(N).
@@ -9,7 +9,7 @@
  * @return {Object} - {moves: <Array>}
  *                  - moves is a list of actions that telling how to remove and insert
  */
-function diffList(oldList, newList, key) {
+export function diffList(oldList: VNode[], newList: VNode[], key: string | Function) {
   let oldMap = makeKeyIndexAndFree(oldList, key);
   let newMap = makeKeyIndexAndFree(newList, key);
 
@@ -18,7 +18,7 @@ function diffList(oldList, newList, key) {
   let oldKeyIndex = oldMap.keyIndex;
   let newKeyIndex = newMap.keyIndex;
 
-  let moves = [];
+  let moves: Patch[] = [];
 
   // a simulate list to manipulate
   let children = [];
@@ -103,17 +103,17 @@ function diffList(oldList, newList, key) {
     k++;
   }
 
-  function remove(index) {
+  function remove(index: number) {
     let move = { index: index, type: 0 };
     moves.push(move);
   }
 
-  function insert(index, item) {
+  function insert(index: number, item: VNode) {
     let move = { index: index, item: item, type: 1 };
     moves.push(move);
   }
 
-  function removeSimulate(index) {
+  function removeSimulate(index: number) {
     simulateList.splice(index, 1);
   }
 
@@ -128,7 +128,7 @@ function diffList(oldList, newList, key) {
  * @param {Array} list
  * @param {String|Function} key
  */
-function makeKeyIndexAndFree(list, key) {
+function makeKeyIndexAndFree(list: VNode[], key: string | Function) {
   let keyIndex = {};
   let free = [];
   for (let i = 0, len = list.length; i < len; i++) {
@@ -146,10 +146,7 @@ function makeKeyIndexAndFree(list, key) {
   };
 }
 
-function getItemKey(item, key) {
+export function getItemKey(item: VNode | null, key: Function | string) {
   if (!item || !key) return void 666;
   return typeof key === 'string' ? item[key] : key(item);
 }
-
-exports.makeKeyIndexAndFree = makeKeyIndexAndFree; // exports for test
-exports.diffList = diffList;
