@@ -63,10 +63,13 @@ export const getAPIs = (listenerMap: WeakMap<Object, Array<Function>>) => ({
    * @returns {Object} - JSON 对象
    */
   toJSON(): any {
-    return Object.keys(this).reduce((ret, key) => {
-      const value = this[key];
-      ret[key] = value && value.toJSON ? value.toJSON() : value;
-      return ret;
-    }, this[isArray] ? [] : {});
+    return Object.keys(this).reduce(
+      (ret, key) => {
+        const value = this[key];
+        ret[key] = value && value.toJSON ? value.toJSON() : value;
+        return ret;
+      },
+      this[isArray] ? [] : {}
+    );
   }
 });

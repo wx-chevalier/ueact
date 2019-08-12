@@ -1,4 +1,12 @@
 /**
+ * Check is Array and contains some elements
+ * @param arrayLike
+ */
+export function isValidArray(arrayLike: any) {
+  return Array.isArray(arrayLike) && arrayLike.length > 0;
+}
+
+/**
  * Shuffles array in place. ES6 version
  * @param {Array} a items The array containing the items.
  */
