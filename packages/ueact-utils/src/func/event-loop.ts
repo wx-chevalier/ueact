@@ -8,7 +8,16 @@ import { now } from './utils';
 export const defer =
   typeof Promise === 'function' ? Promise.resolve().then.bind(Promise.resolve()) : setTimeout;
 
+/** 兼容不同环境的 requestAnimationFrame 实现 */
 export let raf = inBrowser ? (cb: FrameRequestCallback) => requestAnimationFrame(cb) : noop;
+
+export function getRaf() {
+  return raf;
+}
+
+export function setRaf(_raf: typeof raf) {
+  raf = raf;
+}
 
 /** 使用 MicroTask 来异步执行批次任务 */
 export const nextTick = (function() {

@@ -1,6 +1,6 @@
 import { throttleAndQueue } from '../throttle';
 
-describe('', () => {
+it('throttleAndQueue', () => {
   const logMessageLimited = throttleAndQueue((msg: string) => {
     console.log(msg);
   }, 10 * 1000);
