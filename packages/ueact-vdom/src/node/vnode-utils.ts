@@ -1,6 +1,6 @@
 import { VNode } from './VNode';
 
-export const createEmptyVNode = (text: string = '') => {
+export const createEmptyVNode = () => {
   const node = new VNode();
   return node;
 };
@@ -10,6 +10,6 @@ export const createEmptyVNode = (text: string = '') => {
  * @param val
  * @return {VNode}
  */
-export function createTextVNode(val: string | number) {
-  return new VNode(undefined, undefined, [String(val)]);
+export function createTextVNode(text: string | number) {
+  return new VNode(undefined, undefined, [String(text)]);
 }
