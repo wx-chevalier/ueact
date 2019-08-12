@@ -39,10 +39,7 @@ requirejs.config({
 // load the modules defined above
 requirejs(['react', 'react-dom'], function(React, ReactDOM) {
   // now you can render your React elements
-  ReactDOM.render(
-    React.createElement('p', {}, 'Hello, AMD!'),
-    document.getElementById('root')
-  );
+  ReactDOM.render(React.createElement('p', {}, 'Hello, AMD!'), document.getElementById('root'));
 });
 ```
 
