@@ -1,5 +1,3 @@
-// @flow
-
 /** 组件生命周期的接口回调 */
 export interface ComponentLifecycle<P, S> {
   componentDidMount?(): void;
