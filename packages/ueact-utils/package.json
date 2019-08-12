@@ -36,6 +36,7 @@
     "test": "jest --config ../../scripts/jest/jest.config.js"
   },
   "dependencies": {
+    "fast-deep-equal": "^2.0.1",
     "uuid": "^3.3.2"
   },
   "devDependencies": {
