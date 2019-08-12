@@ -29,7 +29,7 @@ export function diff(oldNode: VNode, newNode: VNode) {
  * @param index
  * @param patches
  */
-export function dfsWalk(oldNode: VNode, newNode: VNode, index: number, patches: Patches) {
+function dfsWalk(oldNode: VNode, newNode: VNode, index: number, patches: Patches) {
   // 本层需要修正的地方
   let currentPatch = [];
 
@@ -113,7 +113,7 @@ function diffChildren(
 /**
  * Description 比较两个节点的 Props 差异
  */
-export function diffProps(oldNode: VNode, newNode: VNode) {
+function diffProps(oldNode: VNode, newNode: VNode) {
   // 差异统计数目
   let count = 0;
 
@@ -160,6 +160,6 @@ export function diffProps(oldNode: VNode, newNode: VNode) {
  * @param node
  * @return {boolean}
  */
-export function isIgnoreChildren(node: VNode) {
+function isIgnoreChildren(node: VNode) {
   return node.props && node.props.hasOwnProperty('ignore');
 }

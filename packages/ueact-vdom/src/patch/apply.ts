@@ -1,9 +1,18 @@
+import { setAttr, toArray } from 'ueact-utils';
+
+import { Patch, Patches, PatchType } from './actions';
+import { renderVNode } from '../node';
+
+export interface Walker {
+  index: number;
+}
+
 /**
  * Description 执行真实的补丁修复
  * @param el
  * @param patches
  */
-export default function patch(el: HTMLElement, patches: Object): HTMLElement | void {
+export default function patch(el: HTMLElement, patches: Patches): HTMLElement | null {
   let walker = {
     index: 0
   };
@@ -18,7 +27,7 @@ export default function patch(el: HTMLElement, patches: Object): HTMLElement | v
  * @param walker
  * @param patches
  */
-export function dfsWalk(el: HTMLElement, walker, patches): HTMLElement | void {
+function dfsWalk(el: HTMLElement, walker: Walker, patches: Patches): HTMLElement | null {
   // 提取出当前的差异补丁
   let currentPatches = patches[walker.index];
 
@@ -27,7 +36,7 @@ export function dfsWalk(el: HTMLElement, walker, patches): HTMLElement | void {
 
   // 遍历当前子节点，执行对应修复
   for (let i = 0; i < len; i++) {
-    let child = el.childNodes[i];
+    let child = el.childNodes[i] as HTMLElement;
 
     walker.index++;
 
@@ -49,30 +58,30 @@ export function dfsWalk(el: HTMLElement, walker, patches): HTMLElement | void {
  * @param el
  * @param currentPatches
  */
-export function applyPatches(el: HTMLElement, currentPatches: Array): HTMLElement | void {
+function applyPatches(el: HTMLElement, currentPatches: Patch[]): HTMLElement | null {
   // 新创建的元素
   let newEl = null;
 
-  currentPatches.forEach((currentPatch: Object) => {
+  currentPatches.forEach((currentPatch: Patch) => {
     switch (currentPatch.type) {
-      case REPLACE:
+      case PatchType.REPLACE:
         newEl =
           typeof currentPatch.node === 'string'
             ? document.createTextNode(currentPatch.node)
             : renderVNode(currentPatch.node);
 
         // 创建了新的结点，执行结点替换
-        el.parentNode.replaceChild(newEl, el);
+        el.parentNode!.replaceChild(newEl, el);
 
         // 会返回本层创建的根节点
         break;
-      case REORDER:
+      case PatchType.REORDER:
         reorderChildren(el, currentPatch.moves);
         break;
-      case PROPS:
-        setAttributes(el, currentPatch.props);
+      case PatchType.PROPS:
+        setAttr(el, currentPatch.props);
         break;
-      case TEXT:
+      case PatchType.TEXT:
         if (el.textContent) {
           el.textContent = currentPatch.content;
         } else {
@@ -93,7 +102,7 @@ export function applyPatches(el: HTMLElement, currentPatches: Array): HTMLElemen
  * @param el
  * @param moves
  */
-function reorderChildren(el: HTMLElement, moves: Array<DiffListMove>) {
+function reorderChildren(el: HTMLElement, moves: Array<Patch>) {
   // 将节点子元素转化为数组
   let staticNodeList = toArray(el.childNodes);
   let maps = {};
@@ -108,7 +117,7 @@ function reorderChildren(el: HTMLElement, moves: Array<DiffListMove>) {
   });
 
   // 根据数组的移动情况对于子元素进行重新排序
-  moves.forEach((move: DiffListMove) => {
+  moves.forEach((move: Patch) => {
     let index = move.index;
 
     // 如果是需要移除的

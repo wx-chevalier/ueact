@@ -7,14 +7,14 @@ describe('测试属性差异对比', () => {
   let oldNode: any = (
     <div>
       <span className="header" />
+      <span className="body" />
     </div>
   );
-
-  console.log(oldNode);
 
   let newNode: any = (
     <div>
       <span className="headerNew" />
+      <span className="body" />
     </div>
   );
 

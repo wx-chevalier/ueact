@@ -20,7 +20,7 @@ export interface Patch {
   [key: string]: any;
 }
 
-export type Patches = Record<number | string, Patch | Patch[]>;
+export type Patches = Record<number | string, Patch[]>;
 
 export function patchText(content: VNodeType) {
   return {
