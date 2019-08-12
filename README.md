@@ -12,31 +12,37 @@ Ueact 也不仅仅是框架，更包含了笔者对于微前端、交互式界�
 
 ![](https://github.com/danistefanovic/build-your-own-x/raw/master/feynman.png)
 
-- [shared](./framework/shared): 通用模块
+- 通用模块：
 
-  - [ueact-common](./framework/shared/ueact-common): 基础工具库
-  - [ueact-jsx](./framework/shared/ueact-jsx): JSX 解析与元素创建
-  - [ueact-vdom](./framework/shared/ueact-vdom): Virtual DOM 定义、创建与 Diff
-  - [ueact-component](./framework/shared/ueact-component): 通用组件定义
+  - [ueact-utils](./packages/ueact-utils): 基础工具库
+  - [ueact-jsx](./packages/ueact-jsx): JSX 解析与元素创建
+  - [ueact-vdom](./packages/ueact-vdom): Virtual DOM 定义、创建与 Diff
+  - [ueact-component](./packages/ueact-component): 通用组件定义
 
-* [reconciler](./framework/reconciler): 调和算法
+- 数据绑定与调和算法：
 
-  - [ueact-reactive](./framework/ueact-reactive): 响应式监听
-  - [ueact-stack](./framework/ueact-stack): 单向数据流
-  - [ueact-fiber](./framework/ueact-fiber): Fiber 异步调和
+  - [ueact-observer](./packages/ueact-observer): 变量监听
+  - [ueact-observer-dom](./packages/ueact-observer-dom): DOM 界面变化监听
+  - [ueact-mvvm](./packages/ueact-mvvm): 双向数据绑定
+  - [ueact-stack](./packages/ueact-stack): 单向数据流
+  - [ueact-fiber](./packages/ueact-fiber): Fiber 异步调和
 
-- [render](./framework/render): 渲染模块
+- 渲染模块：
 
-  - [ueact-dom-render](./framework/render/ueact-dom-render): DOM 渲染
-  - [ueact-console-render](./framework/render/ueact-console-render): Console 渲染
-  - [ueact-native-render](./framework/render/ueact-native-render): 移动端渲染
-  - [ueact-server-render](./framework/render/ueact-server-render): 服务端渲染
-  - [ueact-test-render](./framework/render/ueact-test-render): 测试用渲染
+  - [ueact-render-dom](./packages/ueact-render-dom): DOM 渲染
+  - [ueact-render-console](./packages/ueact-render-console): Console 渲染
+  - [ueact-render-native](./packages/ueact-render-native): 移动端渲染
+  - [ueact-render-server](./packages/ueact-render-server): 服务端渲染
+  - [ueact-render-test](./packages/ueact-render-test): 测试用渲染
 
-* [micro-frontend](./micro-frontend): 微前端
+- 工程化与微前端：
 
-  - [ueact-rr](./micro-frontend/ueact-rr): 面向 React & Redux 技术栈的微前端方案
-  - [ueact-mixed-spa](./framework/micro-frontend/ueact-mixed-spa): 多框架混合 SPA
+  - [ueact-rr](./packages/ueact-rr): 面向 React & Redux 技术栈的微前端方案
+  - [ueact-mixed-spa](./packages/ueact-mixed-spa): 多框架混合 SPA
+
+- 跨端开发
+
+  - [ueact-tiga](./packages/ueact-tiga): 仿 Taro 跨端开发
 
 # Development | 开发
 
