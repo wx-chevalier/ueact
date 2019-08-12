@@ -9,7 +9,6 @@ import type { NodeNameType } from '../../../../types/flow/vdom.types';
  * 等价于src/isomorphic/classic/element/ReactElement
  */
 export default class VNode {
-
   /** Required Properties */
 
   nodeName: NodeNameType;

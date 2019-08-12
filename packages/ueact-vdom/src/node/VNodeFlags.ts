@@ -27,8 +27,7 @@ const VNodeFlags = {
     this.InputElement |
     this.TextareaElement |
     this.SelectElement,
-  Component:
-    this.ComponentFunction | this.ComponentClass | this.ComponentUnknown
+  Component: this.ComponentFunction | this.ComponentClass | this.ComponentUnknown
 };
 
 export default VNodeFlags;
