@@ -5,11 +5,17 @@ const pkg = require('../package.json');
 const build = require('../lib/build');
 const replace = require('../lib/replace');
 const combine = require('../lib/combine-excels');
+const jsonToXlsx = require('../lib/json-to-xlsx');
+
+program.version(pkg.version).usage('<command> [directory path | file path]');
 
 program
-  .version(pkg.version)
-  .usage('<command> [directory path | file path]')
-  
+  .command('json-to-xlsx [files...]')
+  .description('Generate a excel from i18n json files')
+  .action(function(files) {
+    jsonToXlsx(files);
+  });
+
 program
   .command('build')
   .description('extract chinese literal from project and generate a excel')
@@ -31,5 +37,5 @@ program
     const folder = process.cwd();
     combine(folder);
   });
-  
+
 program.parse(process.argv);

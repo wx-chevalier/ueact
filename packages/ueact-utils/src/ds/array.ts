@@ -6,6 +6,10 @@ export function isValidArray(arrayLike: any) {
   return Array.isArray(arrayLike) && arrayLike.length > 0;
 }
 
+/**
+ * 将数据扁平化
+ * @param list
+ */
 export const flatten = (list: Array<any>): Array<any> =>
   list.reduce((a: any, b: any) => a.concat(Array.isArray(b) ? flatten(b) : b), []);
 
@@ -41,3 +45,14 @@ export function toArray(listLike: any) {
 }
 
 export const toArrayAlias = toArray;
+
+/** 将数组转化为 Map */
+export function groupByDistinctly(arr: any[], key: string | number) {
+  const map = {};
+
+  arr.forEach(a => {
+    map[a[key]] = a;
+  });
+
+  return map;
+}

@@ -5,6 +5,7 @@ const path = require('path');
 const glob = require('glob');
 const recast = require('recast');
 const babylon = require('babylon');
+
 const config = require('./config');
 
 // 
@@ -28,11 +29,11 @@ const utils = {
   getFiles() {
     const type = utils.isFile(config.argvPath) ? [config.argvPath.split('.')[1]] : config.basename;
     const fileArr = type.map(ext => {
-      const filePath = config.argvPath
-        ? utils.isFolder(config.argvPath) 
-          ? `${utils.p(config.argvPath)}/**/*.${ext}`
-          : utils.p(config.argvPath) 
-        : `${utils.p(config.root)}/**/*.${ext}`;
+      const filePath = config.argvPath ?
+        utils.isFolder(config.argvPath) ?
+        `${utils.p(config.argvPath)}/**/*.${ext}` :
+        utils.p(config.argvPath) :
+        `${utils.p(config.root)}/**/*.${ext}`;
       const ignorePath = config.ignore.map(n => {
         return `${utils.p(config.root)}/${n}/**/*.${ext}`;
       });
@@ -52,7 +53,7 @@ const utils = {
     const code = fs.readFileSync(utils.p(file), 'utf8');
     const parseOptions = {
       parser: {
-        parse: function(source) {
+        parse: function (source) {
           return babylon.parse(source, config.parseOpts);
         }
       }
@@ -60,7 +61,7 @@ const utils = {
     // let ast;
     try {
       return recast.parse(code, parseOptions);
-    }catch(e) {
+    } catch (e) {
       console.error(`file ${file} parse ast error`);
       console.error(e);
     }
@@ -73,17 +74,17 @@ const utils = {
    */
   visitAST(ast, cb) {
     recast.visit(ast, {
-      visitLiteral: function(path){
+      visitLiteral: function (path) {
         const v = path.node.value;
         cb(path, v);
         this.traverse(path);
       },
-      visitJSXText: function(path){
+      visitJSXText: function (path) {
         const v = path.node.value;
         cb(path, v);
         this.traverse(path);
       },
-      visitTemplateElement: function(path) {
+      visitTemplateElement: function (path) {
         const v = path.node.value.raw;
         cb(path, v);
         this.traverse(path);

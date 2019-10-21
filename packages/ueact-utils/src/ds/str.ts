@@ -1,3 +1,9 @@
+import uuid from 'uuid/v4';
+
+export function genId() {
+  return uuid();
+}
+
 // https://github.com/darkskyapp/string-hash/blob/master/index.js
 export function hash(str: string) {
   let hash = 5381;

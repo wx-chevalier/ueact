@@ -1,0 +1,4 @@
+{
+  "welcome": "欢迎, {name}，{unreadCount} 消息",
+  "test": "测试，{count}"
+}

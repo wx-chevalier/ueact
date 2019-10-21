@@ -107,7 +107,7 @@ export const nextTick = (function() {
   };
 })();
 
-export interface Task {
+export interface EventLoopTask {
   abort(): void;
   promise: Promise<void>;
 }
@@ -133,7 +133,7 @@ export function clear_loops() {
   running = false;
 }
 
-export function loop(fn: (num: number) => void): Task {
+export function loop(fn: (num: number) => void): EventLoopTask {
   let task: [Function, Function];
 
   if (!running) {

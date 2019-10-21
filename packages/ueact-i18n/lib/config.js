@@ -35,7 +35,7 @@ const DEFAULT_CONFIG = {
       'throwExpressions',
       'pipelineOperator',
       'nullishCoalescingOperator',
-      'exportExtensions',
+      'exportExtensions'
     ]
   },
   printOpts: {},
@@ -44,8 +44,8 @@ const DEFAULT_CONFIG = {
   autoKey: true,
   mergePreI18n: false,
   customCall: 'i18n',
+  languageMapping: {}
 };
-
 
 let customConfig = {};
 
@@ -53,6 +53,6 @@ if (fs.existsSync(`${process.cwd()}/atc.config.js`)) {
   customConfig = require(`${process.cwd()}/atc.config.js`);
 }
 
-const config = Object.assign(DEFAULT_CONFIG, customConfig)
+const config = Object.assign(DEFAULT_CONFIG, customConfig);
 
 module.exports = config;

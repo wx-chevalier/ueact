@@ -12,27 +12,30 @@ const utils = require('./util');
 
 // From https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys
 if (!Object.keys) {
-  Object.keys = (function() {
+  Object.keys = (function () {
     'use strict';
     var hasOwnProperty = Object.prototype.hasOwnProperty,
-        hasDontEnumBug = !({ toString: null }).propertyIsEnumerable('toString'),
-        dontEnums = [
-          'toString',
-          'toLocaleString',
-          'valueOf',
-          'hasOwnProperty',
-          'isPrototypeOf',
-          'propertyIsEnumerable',
-          'constructor'
-        ],
-        dontEnumsLength = dontEnums.length;
+      hasDontEnumBug = !({
+        toString: null
+      }).propertyIsEnumerable('toString'),
+      dontEnums = [
+        'toString',
+        'toLocaleString',
+        'valueOf',
+        'hasOwnProperty',
+        'isPrototypeOf',
+        'propertyIsEnumerable',
+        'constructor'
+      ],
+      dontEnumsLength = dontEnums.length;
 
-    return function(obj) {
+    return function (obj) {
       if (typeof obj !== 'function' && (typeof obj !== 'object' || obj === null)) {
         throw new TypeError('Object.keys called on non-object');
       }
 
-      var result = [], prop, i;
+      var result = [],
+        prop, i;
 
       for (prop in obj) {
         if (hasOwnProperty.call(obj, prop)) {
@@ -55,13 +58,13 @@ if (!Object.keys) {
 // From
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries
 if (!Object.entries)
-  Object.entries = function( obj ){
-    var ownProps = Object.keys( obj ),
-        i = ownProps.length,
-        resArray = new Array(i); // preallocate the Array
+  Object.entries = function (obj) {
+    var ownProps = Object.keys(obj),
+      i = ownProps.length,
+      resArray = new Array(i); // preallocate the Array
     while (i--)
       resArray[i] = [ownProps[i], obj[ownProps[i]]];
-    
+
     return resArray;
   };
 
@@ -77,7 +80,7 @@ if (!Object.entries)
 function generateChnArr(files) {
   const i18n_zh_cn_map = {};
   const i18n_en_map = {};
-  // 获取所有的i18n下，中文
+  // 获取所有的 i18n 下，中文
   utils.getFilePathByName('zh-cn.js', (single_zh_cn_map, relative_path) => {
     const prefix = (`${config.prefix ? `${config.prefix}.` : ''}${relative_path.split('/').slice(2, -2).join('.')}`);
     for (const key in single_zh_cn_map) {
@@ -102,7 +105,7 @@ function generateChnArr(files) {
   files.map((file, i) => {
     const ast = utils.getAST(file);
     utils.visitAST(ast, (path, v) => {
-      if(utils.chnRegExp.test(v)) {
+      if (utils.chnRegExp.test(v)) {
         v.replace(/(\:|\：|)$/g, '');
         const prefix = `${config.prefix ? `${config.prefix}.` : ''}${file.split('/').slice(2, -1).join('.')}.`;
         chnArr.push([prefix, v.trim()]);
@@ -174,20 +177,20 @@ function uniquePinyinKey(arr) {
               singleRepeat = true;
               if (limit < chn.length) {
                 limit += 2
-              }else {
+              } else {
                 // 假设cacheMap已有ce_shi(测试)的key，这时再来一个同音词(侧室),将生成ce_shi1的key,然后存入cacheMap
                 // 若再来一个同音词(侧视),
-                count ++;
+                count++;
                 pinyinKey += String(count);
                 cacheMap[pinyinKey] = true;
                 singleRepeat = false;
               }
-            }else {
+            } else {
               //若没缓存在cacheMap里的话，就存进去
               cacheMap[pinyinKey] = true;
               singleRepeat = false;
             }
-          } while(singleRepeat) // 若在当前页面，cacheMap里有重复的pinyinKey,就返回到do中生成新的pinyinKey
+          } while (singleRepeat) // 若在当前页面，cacheMap里有重复的pinyinKey,就返回到do中生成新的pinyinKey
           res.push([`${prefix}${pinyinKey}`, chn]);
         })
     })
@@ -210,12 +213,12 @@ function generatePinyinKey(chn, limit) {
 
 /**
  * @param {Array} chnArr
- * 根据chnMap生成excel
+ * 根据 chnMap 生成excel
  */
 function generateMCMSxlsx(chnArr) {
-  const tempPath = config.templatePath
-    ? `${path.resolve(config.templatePath)}`
-    : `${path.join(path.resolve(__dirname, '..'), '/template/mcms_intl-i18nadmin_en_US.xlsx')}`;
+  const tempPath = config.templatePath ?
+    `${path.resolve(config.templatePath)}` :
+    `${path.join(path.resolve(__dirname, '..'), '/template/mcms_intl-i18nadmin_en_US.xlsx')}`;
   const template = xlsx.parse(fs.readFileSync(tempPath));
   template[0].data = template[0].data.concat(chnArr);
   const newBuffer = xlsx.build(template);
@@ -225,13 +228,13 @@ function generateMCMSxlsx(chnArr) {
     console.timeEnd('generate MCMSxlsx');
     console.log(`build success ${xlsxPath}`.green);
     console.log(`words count: ${chnArr.length}`);
-  }catch(e) {
+  } catch (e) {
     throw new Error(`build failed: ${e}`);
   }
 }
 
 
-module.exports = function() {
+module.exports = function () {
   const files = utils.getFiles();
   console.time('generate ChnArr');
   const chnArr = generateChnArr(files);
