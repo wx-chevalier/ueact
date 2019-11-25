@@ -1,4 +1,4 @@
-import chunk from 'lodash.chunk';
+import { chunk } from 'lodash';
 
 /**
  * Check is Array and contains some elements

@@ -7,7 +7,7 @@
     "react"
   ],
   "name": "ueact-utils",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "repository": {
     "type": "git",
     "url": "https://github.com/wx-chevalier/Ueact"
@@ -39,13 +39,15 @@
     "fast-deep-equal": "^2.0.1",
     "history": "^4.10.1",
     "lodash": "^4.17.15",
+    "lodash-es": "^4.17.15",
     "lodash.chunk": "^4.2.0",
     "uuid": "^3.3.3"
   },
   "devDependencies": {
     "@types/history": "^4.7.3",
-    "@types/jest": "24.0.13",
+    "@types/jest": "^24.0.23",
     "@types/lodash": "^4.14.149",
+    "@types/lodash-es": "^4.17.3",
     "@types/lodash.chunk": "^4.2.6",
     "@types/uuid": "^3.4.4",
     "@typescript-eslint/eslint-plugin": "^1.7.0",
