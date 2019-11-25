@@ -30,3 +30,8 @@ export function formatBytes(bytes: number, decimals = 2) {
 
   return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
 }
+
+/** 格式化百分比 */
+export function formatPercent(percent: number) {
+  return `${(percent * 100).toFixed(2)}%`;
+}
