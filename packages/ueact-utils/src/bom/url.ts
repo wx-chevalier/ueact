@@ -44,8 +44,7 @@ export function getQueryValues(
   Object.keys(params).forEach(param => {
     const { defaultValue, stringToValue = defaultStringToValue } = params[param];
     const valueString = locationParams.get(param);
-    const value =
-      valueString === null || valueString === undefined ? defaultValue : stringToValue(valueString);
+    const value = !valueString ? defaultValue : stringToValue(valueString);
     queryValues[param] = value;
   });
 
