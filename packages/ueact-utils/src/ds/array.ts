@@ -49,11 +49,11 @@ export function toArray(listLike: any) {
 export const toArrayAlias = toArray;
 
 /** 将数组转化为 Map */
-export function groupByDistinctly(arr: any[], key: string | number) {
+export function groupByDistinctly(arr: any[], key: string | number, valueKey?: string | number) {
   const map = {};
 
   arr.forEach(a => {
-    map[a[key]] = a;
+    map[a[key]] = valueKey ? a[valueKey] : a;
   });
 
   return map;
