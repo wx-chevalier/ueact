@@ -1,5 +1,6 @@
 export * from './array';
 export * from './collection';
+export * from './datetime';
 export * from './equal';
 export * from './number';
 export * from './object';
