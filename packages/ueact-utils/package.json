@@ -7,7 +7,7 @@
     "react"
   ],
   "name": "ueact-utils",
-  "version": "0.0.8",
+  "version": "0.1.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/wx-chevalier/Ueact"
@@ -36,6 +36,7 @@
     "test": "jest --config ../../scripts/jest/jest.config.js"
   },
   "dependencies": {
+    "dayjs": "^1.8.20",
     "fast-deep-equal": "^2.0.1",
     "history": "^4.10.1",
     "lodash": "^4.17.15",

@@ -35,3 +35,12 @@ export function formatBytes(bytes: number, decimals = 2) {
 export function formatPercent(percent: number) {
   return `${(percent * 100).toFixed(2)}%`;
 }
+
+// 左侧补全
+export function paddingLeftZero(num: number) {
+  if (num > 9) {
+    return `${num}`;
+  }
+
+  return `0${num}`;
+}

@@ -4431,6 +4431,11 @@ dateformat@^3.0.0:
   resolved "http://registry.npm.taobao.org/dateformat/download/dateformat-3.0.3.tgz#a6e37499a4d9a9cf85ef5872044d62901c9889ae"
   integrity sha1-puN0maTZqc+F71hyBE1ikByYia4=
 
+dayjs@^1.8.20:
+  version "1.8.20"
+  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.8.20.tgz#724a5cb6ad1f6fc066b0bd9a800dedcc7886f19e"
+  integrity sha512-mH0MCDxw6UCGJYxVN78h8ugWycZAO8thkj3bW6vApL5tS0hQplIDdAQcmbvl7n35H0AKdCJQaArTrIQw2xt4Qg==
+
 deasync@^0.1.14:
   version "0.1.15"
   resolved "https://registry.npm.taobao.org/deasync/download/deasync-0.1.15.tgz#788c4bbe6d32521233b28d23936de1bbadd2e112"

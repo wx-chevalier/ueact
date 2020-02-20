@@ -1,4 +1,4 @@
 export * from './compatibility';
 export * from './browser';
-export * from './modules';
+export * from './mobile';
 export * from './server';
