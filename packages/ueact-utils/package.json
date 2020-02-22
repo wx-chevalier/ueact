@@ -42,6 +42,7 @@
     "lodash": "^4.17.15",
     "lodash-es": "^4.17.15",
     "lodash.chunk": "^4.2.0",
+    "urijs": "^1.19.2",
     "uuid": "^3.3.3"
   },
   "devDependencies": {
@@ -50,6 +51,7 @@
     "@types/lodash": "^4.14.149",
     "@types/lodash-es": "^4.17.3",
     "@types/lodash.chunk": "^4.2.6",
+    "@types/urijs": "^1.19.5",
     "@types/uuid": "^3.4.4",
     "@typescript-eslint/eslint-plugin": "^1.7.0",
     "@typescript-eslint/parser": "^1.7.0",
