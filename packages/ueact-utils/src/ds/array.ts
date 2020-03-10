@@ -1,14 +1,6 @@
 import { chunk } from 'lodash';
 
 /**
- * Check is Array and contains some elements
- * @param arrayLike
- */
-export function isValidArray(arrayLike: any) {
-  return Array.isArray(arrayLike) && arrayLike.length > 0;
-}
-
-/**
  * 将数据扁平化
  * @param list
  */

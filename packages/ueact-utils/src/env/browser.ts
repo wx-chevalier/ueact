@@ -12,7 +12,7 @@ export const isIOS = UA && /iphone|ipad|ipod|ios/.test(UA);
 export const isChrome = UA && /chrome\/\d+/.test(UA) && !isEdge;
 
 /** 获得 Chrome 的版本号 */
-export function getChromeVersion() {
+export function getChromeVersion(): number | boolean {
   const arr = navigator.userAgent.split(' ');
   let chromeVersion = '';
   // eslint-disable-next-line @typescript-eslint/prefer-for-of
@@ -30,6 +30,7 @@ export function getChromeVersion() {
 export const nativeWatch = ({} as any).watch;
 
 export let supportsPassive = false;
+
 if (inBrowser) {
   try {
     const opts = {};

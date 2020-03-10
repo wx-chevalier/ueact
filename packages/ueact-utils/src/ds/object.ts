@@ -1,35 +1,4 @@
 /**
- * Quick object check - this is primarily used to tell
- * Objects from primitive values when we know the value
- * is a JSON-compliant type.
- */
-export function isObject(obj: any): boolean {
-  return obj !== null && typeof obj === 'object';
-}
-
-const _toString = Object.prototype.toString;
-
-/**
- * Strict object type check. Only returns true
- * for plain JavaScript objects.
- */
-export function isPlainObject(obj: any): boolean {
-  return _toString.call(obj) === '[object Object]';
-}
-
-export function isRegExp(v: any): boolean {
-  return _toString.call(v) === '[object RegExp]';
-}
-
-/**
- * Check if val is a valid array index.
- */
-export function isValidArrayIndex(val: any): boolean {
-  const n = parseFloat(val);
-  return n >= 0 && Math.floor(n) === n && isFinite(val);
-}
-
-/**
  * Convert a value to a string that is actually rendered.
  */
 export function toString(val: any): string {

@@ -1,6 +1,7 @@
 import { inBrowser, isNative, isIOS } from '../env';
+import { now } from '../ds';
+
 import { handleError, noop } from '.';
-import { now } from './utils';
 
 /** 异步调用某个函数的简单实现，这里混用了 MicroTask 与 MacroTask
  *	@param {Function} callback

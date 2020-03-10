@@ -1,5 +1,9 @@
 import dayjs, { Dayjs } from 'dayjs';
+
 import { paddingLeftZero } from './number';
+import { inBrowser } from '../env';
+
+export let now: () => number = inBrowser ? () => window.performance.now() : () => Date.now();
 
 export type Dateable = string | number | Dayjs | undefined;
 

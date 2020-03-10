@@ -1,4 +1,4 @@
-import { isObject } from './object';
+import { isObject } from './is';
 
 const isArray = Array.isArray;
 const keyList = Object.keys;

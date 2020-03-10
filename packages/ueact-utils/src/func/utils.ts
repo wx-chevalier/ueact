@@ -1,5 +1,3 @@
-import { inBrowser } from './../env';
-
 /**
  * Perform no operation.
  * Stubbing args to make Flow happy without leaving useless transpiled code
@@ -17,16 +15,10 @@ export const no = (...args: any[]) => false;
  */
 export const identity = (_: any) => _;
 
-export let now: () => number = inBrowser ? () => window.performance.now() : () => Date.now();
-
 export function assign<T, S>(tar: T, src: S): T & S {
   // @ts-ignore
   for (const k in src) tar[k] = src[k];
   return tar as T & S;
-}
-
-export function isPromise<T = any>(value: any): value is PromiseLike<T> {
-  return value && typeof value === 'object' && typeof value.then === 'function';
 }
 
 export function run(fn: Function) {
