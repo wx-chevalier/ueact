@@ -15,15 +15,26 @@ export function downloadUrl(url: string, fileName: string = '临时五年级') {
   a.click();
 }
 
+export function arrayBufferToFile(
+  arrayBuffer: ArrayBuffer,
+  fileType = 'application/octet-binary',
+  fileName: string = 'fileName'
+): File {
+  const iA = new Int8Array(arrayBuffer);
+  const blob = new Blob([iA], { type: fileType });
+
+  return blobToFile(blob, fileName);
+}
+
 /** 将某个 Blob 变为文件对象 */
 export function blobToFile(theBlob: Blob, fileName: string = 'fileName'): File {
-  var b: any = theBlob;
+  const b: any = theBlob;
   // A Blob() is almost a File() - it's just missing the two properties below which we will add
   b.lastModifiedDate = new Date();
   b.name = fileName;
 
   // Cast to a File() type
-  return <File>theBlob;
+  return new File([theBlob], fileName);
 }
 
 /** 将某个文件对象转化为 ArrayBuffer */
