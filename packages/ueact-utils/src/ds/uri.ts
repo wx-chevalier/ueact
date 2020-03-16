@@ -91,7 +91,7 @@ export function removeUtmParamsFromQuery(originUrl: string) {
 }
 
 // See http://medialize.github.io/URI.js/docs.html
-export const UrlUtils = URI;
+export const UrlUtils: URI = (URI as unknown) as any;
 
 /** 从 Url 中获取到最后的文件名 */
 export function getFileNameFromUrl(href: string) {

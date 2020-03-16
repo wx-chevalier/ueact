@@ -94,8 +94,6 @@
   },
   "private": true,
   "workspaces": [
-    "packages/ueact-utils",
-    "packages/ueact-redux",
-    "packages/ueact-vdom"
+    "packages/*"
   ]
 }
