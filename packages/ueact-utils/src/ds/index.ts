@@ -7,3 +7,4 @@ export * from './object';
 export * from './set';
 export * from './str';
 export * from './type';
+export * from './uri';
