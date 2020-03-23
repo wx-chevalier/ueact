@@ -12,3 +12,11 @@ export function hash(str: string) {
   while (i--) hash = ((hash << 5) - hash) ^ str.charCodeAt(i);
   return hash >>> 0;
 }
+
+export function parseJson(str: string, defaultValue = {}) {
+  try {
+    return JSON.parse(str) || defaultValue;
+  } catch (e) {
+    return defaultValue;
+  }
+}
