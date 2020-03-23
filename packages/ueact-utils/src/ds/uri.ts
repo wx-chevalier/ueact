@@ -1,4 +1,4 @@
-import URI from 'urijs';
+import * as URI from 'urijs';
 
 const utmParams = [
   'utm_source',
@@ -91,7 +91,9 @@ export function removeUtmParamsFromQuery(originUrl: string) {
 }
 
 // See http://medialize.github.io/URI.js/docs.html
-export const UrlUtils = (URI as unknown) as URI;
+export function newUri(href: string) {
+  return URI(href);
+}
 
 /** 从 Url 中获取到最后的文件名 */
 export function getFileNameFromUrl(href: string): string {

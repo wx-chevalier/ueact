@@ -1,3 +1,10 @@
+export const is = (x: any, y: any) => {
+  if (x === y) {
+    return x !== 0 || y !== 0 || 1 / x === 1 / y;
+  }
+  return x !== x && y !== y; // eslint-disable-line
+};
+
 export function isPromise<T = any>(value: any): value is PromiseLike<T> {
   return value && typeof value === 'object' && typeof value.then === 'function';
 }

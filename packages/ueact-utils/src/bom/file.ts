@@ -1,7 +1,19 @@
 import { inBrowser } from '../env';
 
+/** 下载某个 ArrayBuffer */
+export function downloadArraybuffer(
+  arrayBuffer: ArrayBuffer,
+  type: string,
+  fileName: string = 'fileName'
+) {
+  const blob = new Blob([arrayBuffer], { type });
+  const url = window.URL.createObjectURL(blob);
+
+  downloadUrl(url, fileName);
+}
+
 /** 下载某个 URL 对应的文件 */
-export function downloadUrl(url: string, fileName: string = '临时五年级') {
+export function downloadUrl(url: string, fileName: string = 'fileName') {
   if (!inBrowser) {
     return;
   }
